@@ -8,13 +8,21 @@ const Clients = () => {
     {
       id: 0,
       icon: Cpu,
-      title: 'AI Providers & Exporters',
-      summary: 'Companies developing and exporting AI systems globally',
-      details: 'For AI providers and exporters, regulatory compliance is a market access requirement. We help AI companies navigate the complex web of export controls, dual-use regulations, and destination market requirements to ensure smooth global deployment.',
+      title: 'AI Providers',
+      summary: 'Companies developing and deploying AI systems',
+      details: 'For AI providers, regulatory compliance is a market access requirement. We help AI companies navigate the complex web of export controls, dual-use regulations, and destination market requirements to ensure smooth global deployment.',
       challenges: ['EU AI Act conformity assessments', 'Cross-border data transfer compliance', 'Market access documentation', 'Technical standard harmonization'],
     },
     {
       id: 1,
+      icon: Globe,
+      title: 'Exporters',
+      summary: 'Companies exporting AI systems to global markets',
+      details: 'AI exporters face unique challenges in meeting destination market requirements while maintaining compliance in their home jurisdiction. We provide comprehensive export compliance strategies that address both origin and destination regulations.',
+      challenges: ['Destination market compliance', 'Export control classifications', 'Dual-use regulations', 'Cross-border documentation'],
+    },
+    {
+      id: 2,
       icon: Building2,
       title: 'Banks & Financial Institutions',
       summary: 'High-risk AI in credit, fraud, trading, and customer service',
@@ -22,7 +30,7 @@ const Clients = () => {
       challenges: ['Credit scoring AI compliance', 'Algorithmic trading oversight', 'Fraud detection governance', 'Customer service bot documentation'],
     },
     {
-      id: 2,
+      id: 3,
       icon: HeartPulse,
       title: 'MedTech & Digital Health',
       summary: 'AI/ML medical devices and healthcare systems',
@@ -30,7 +38,7 @@ const Clients = () => {
       challenges: ['MDR/IVDR + AI Act alignment', 'Clinical evidence documentation', 'Human-in-the-loop protocols', 'Post-market monitoring'],
     },
     {
-      id: 3,
+      id: 4,
       icon: Users2,
       title: 'HR & Workforce Platforms',
       summary: 'Recruitment, assessment, and workforce management AI',
@@ -38,7 +46,7 @@ const Clients = () => {
       challenges: ['Recruitment AI transparency', 'Bias monitoring and mitigation', 'Candidate notification requirements', 'Workforce analytics governance'],
     },
     {
-      id: 4,
+      id: 5,
       icon: Zap,
       title: 'Energy & Critical Infrastructure',
       summary: 'SCADA, grid management, and operational technology AI',
@@ -46,9 +54,9 @@ const Clients = () => {
       challenges: ['NIS2 + AI Act integration', 'Safety-critical AI governance', 'Operational technology security', 'Emergency response protocols'],
     },
     {
-      id: 5,
+      id: 6,
       icon: TrendingUp,
-      title: 'Investors & Corporate Teams',
+      title: 'Investors & Corporate Development',
       summary: 'Due diligence and governance for AI investments',
       details: 'Investors need to understand the regulatory risk profile of AI investments. We provide AI due diligence for M&A transactions, investment rounds, and corporate development activities, identifying governance gaps and compliance costs.',
       challenges: ['AI due diligence frameworks', 'Regulatory risk assessment', 'Investment thesis validation', 'Post-acquisition integration'],
