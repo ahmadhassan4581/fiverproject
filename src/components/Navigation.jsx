@@ -86,14 +86,14 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden py-4 border-t border-gray-200">
-            <div className="flex flex-col gap-2">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-200 py-4">
+            <div className="px-4 space-y-1">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={(e) => scrollToSection(e, link.href)}
-                  className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-blue-700 hover:bg-gray-50 rounded-lg transition-colors"
+                  className="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors"
                 >
                   {link.label}
                 </a>
@@ -101,7 +101,7 @@ const Navigation = () => {
               <a
                 href="#contact"
                 onClick={(e) => scrollToSection(e, '#contact')}
-                className="mx-4 mt-2 inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white btn-primary rounded-lg"
+                className="block mt-3 px-4 py-3 text-sm font-medium text-white btn-primary rounded-lg text-center"
               >
                 Request Consultation
               </a>
