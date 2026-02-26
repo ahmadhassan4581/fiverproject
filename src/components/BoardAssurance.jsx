@@ -120,7 +120,8 @@ const BoardAssurance = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4 badge-shimmer">
+            <AlertCircle className="w-4 h-4" />
             Board Protection
           </span>
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
@@ -143,16 +144,16 @@ const BoardAssurance = () => {
               return (
                 <div
                   key={area.id}
-                  className={`border rounded-xl overflow-hidden transition-all duration-300 ${
-                    isExpanded ? 'border-blue-300 shadow-lg' : 'border-gray-200 hover:border-gray-300'
+                  className={`service-card border rounded-xl overflow-hidden ${
+                    isExpanded ? 'border-blue-300 shadow-lg' : 'border-gray-200'
                   }`}
                 >
                   <button
                     onClick={() => setExpandedSection(isExpanded ? null : area.id)}
-                    className="w-full p-6 flex items-start gap-4 text-left"
+                    className="w-full p-6 flex items-start gap-4 text-left group"
                   >
-                    <div className={`p-3 rounded-lg ${isExpanded ? 'bg-blue-100' : 'bg-gray-100'}`}>
-                      <Icon className={`w-6 h-6 ${isExpanded ? 'text-blue-700' : 'text-gray-600'}`} />
+                    <div className={`p-3 rounded-lg transition-all duration-300 ${isExpanded ? 'bg-blue-100 scale-110' : 'bg-gray-100 group-hover:bg-blue-50 group-hover:scale-105'}`}>
+                      <Icon className={`w-6 h-6 transition-colors ${isExpanded ? 'text-blue-700' : 'text-gray-600 group-hover:text-blue-600'}`} />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
@@ -229,10 +230,10 @@ const BoardAssurance = () => {
             {/* CTA */}
             <a
               href="#contact"
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-medium text-white btn-primary rounded-xl"
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-medium text-white bg-gradient-to-r from-blue-700 to-blue-600 rounded-xl cta-button ripple"
             >
               Secure Board Level Compliance
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-5 h-5 arrow-icon" />
             </a>
           </div>
         </div>

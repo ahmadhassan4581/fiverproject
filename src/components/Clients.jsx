@@ -68,7 +68,8 @@ const Clients = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4 badge-shimmer">
+            <Globe className="w-4 h-4" />
             Client Base
           </span>
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
@@ -91,20 +92,20 @@ const Clients = () => {
               return (
                 <div
                   key={sector.id}
-                  className={`bg-white border rounded-xl overflow-hidden transition-all duration-300 ${
-                    isExpanded ? 'border-blue-300 shadow-lg' : 'border-gray-200 hover:border-gray-300'
+                  className={`sector-card bg-white border rounded-xl overflow-hidden ${
+                    isExpanded ? 'border-blue-300 shadow-lg' : 'border-gray-200'
                   }`}
                 >
                   <button
                     onClick={() => setExpandedSector(isExpanded ? null : sector.id)}
-                    className="w-full p-5 flex items-start gap-4 text-left"
+                    className="w-full p-5 flex items-start gap-4 text-left group"
                   >
-                    <div className={`p-3 rounded-lg ${isExpanded ? 'bg-blue-100' : 'bg-gray-100'}`}>
+                    <div className={`sector-icon p-3 rounded-lg ${isExpanded ? 'bg-blue-100' : 'bg-gray-100'}`}>
                       <Icon className={`w-6 h-6 ${isExpanded ? 'text-blue-700' : 'text-gray-600'}`} />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
-                        <h3 className="text-lg font-semibold text-gray-900">{sector.title}</h3>
+                        <h3 className="text-lg font-semibold text-gray-900 sector-title">{sector.title}</h3>
                         {isExpanded ? (
                           <ChevronUp className="w-5 h-5 text-gray-400" />
                         ) : (
@@ -203,20 +204,20 @@ const Clients = () => {
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-200 text-center">
-                <p className="text-3xl font-bold text-blue-700">50+</p>
+              <div className="stat-card bg-white rounded-xl p-5 shadow-sm border border-gray-200 text-center cursor-pointer">
+                <p className="text-3xl font-bold text-blue-700 stat-number">50+</p>
                 <p className="text-sm text-gray-600">Enterprise Clients</p>
               </div>
-              <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-200 text-center">
-                <p className="text-3xl font-bold text-blue-700">25+</p>
+              <div className="stat-card bg-white rounded-xl p-5 shadow-sm border border-gray-200 text-center cursor-pointer">
+                <p className="text-3xl font-bold text-blue-700 stat-number">25+</p>
                 <p className="text-sm text-gray-600">Jurisdictions</p>
               </div>
-              <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-200 text-center">
-                <p className="text-3xl font-bold text-blue-700">200+</p>
+              <div className="stat-card bg-white rounded-xl p-5 shadow-sm border border-gray-200 text-center cursor-pointer">
+                <p className="text-3xl font-bold text-blue-700 stat-number">200+</p>
                 <p className="text-sm text-gray-600">AI Systems Governed</p>
               </div>
-              <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-200 text-center">
-                <p className="text-3xl font-bold text-blue-700">€35M</p>
+              <div className="stat-card bg-white rounded-xl p-5 shadow-sm border border-gray-200 text-center cursor-pointer">
+                <p className="text-3xl font-bold text-blue-700 stat-number">€35M</p>
                 <p className="text-sm text-gray-600">Risk Reduced</p>
               </div>
             </div>
@@ -224,10 +225,10 @@ const Clients = () => {
             {/* CTA */}
             <a
               href="#contact"
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-medium text-white btn-primary rounded-xl"
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-medium text-white bg-gradient-to-r from-blue-700 to-blue-600 rounded-xl cta-button ripple"
             >
               Determine Your Global AI Compliance Scope
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-5 h-5 arrow-icon" />
             </a>
           </div>
         </div>

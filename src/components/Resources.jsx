@@ -107,7 +107,8 @@ const Resources = () => {
     <section id="resources" className="py-20 lg:py-28 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-16">
-          <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4 badge-shimmer">
+            <BookOpen className="w-4 h-4" />
             Thought Leadership
           </span>
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
@@ -126,10 +127,10 @@ const Resources = () => {
             return (
               <div
                 key={resource.id}
-                className="bg-white border border-gray-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-xl transition-all duration-300 card-hover hover:scale-[1.03]"
+                className="resource-card bg-white border border-gray-200 rounded-xl p-6 card-3d group cursor-pointer"
               >
-                <div className="p-3 bg-blue-100 rounded-lg w-fit mb-4 transition-colors duration-300">
-                  <Icon className="w-6 h-6 text-blue-700" />
+                <div className="p-3 bg-blue-100 rounded-lg w-fit mb-4 transition-all duration-300 group-hover:bg-blue-600 group-hover:scale-110">
+                  <Icon className="w-6 h-6 text-blue-700 transition-colors group-hover:text-white" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2">{resource.title}</h3>
                 <p className="text-sm text-gray-600 mb-4 line-clamp-3">{resource.description}</p>
@@ -155,10 +156,10 @@ const Resources = () => {
         <div className="mt-12 text-center">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-4 text-base font-medium text-white bg-gradient-to-r from-blue-700 to-blue-600 rounded-xl shadow-lg shadow-blue-700/25 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:from-blue-800 hover:to-blue-700"
+            className="inline-flex items-center gap-2 px-8 py-4 text-base font-medium text-white bg-gradient-to-r from-blue-700 to-blue-600 rounded-xl shadow-lg shadow-blue-700/25 cta-button ripple"
           >
             Access AI Governance Resources
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-5 h-5 arrow-icon" />
           </a>
         </div>
       </div>
@@ -272,7 +273,7 @@ const Resources = () => {
                     <div className="pt-4">
                       <button
                         type="submit"
-                        className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white bg-gradient-to-r from-blue-700 to-blue-600 rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:from-blue-800 hover:to-blue-700"
+                        className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white bg-gradient-to-r from-blue-700 to-blue-600 rounded-lg cta-button ripple"
                       >
                         <Download className="w-4 h-4" />
                         Download Resource

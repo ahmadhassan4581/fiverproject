@@ -74,11 +74,11 @@ const Footer = () => {
             {trustSignals.map((signal) => {
               const Icon = signal.icon;
               return (
-                <div key={signal.title} className="flex flex-col items-center text-center">
-                  <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-3">
-                    <Icon className="w-6 h-6 text-blue-400" />
+                <div key={signal.title} className="flex flex-col items-center text-center group cursor-pointer">
+                  <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-3 transition-all duration-300 group-hover:bg-blue-600 group-hover:scale-110">
+                    <Icon className="w-6 h-6 text-blue-400 transition-colors group-hover:text-white" />
                   </div>
-                  <h4 className="text-sm font-medium text-white mb-1">{signal.title}</h4>
+                  <h4 className="text-sm font-medium text-white mb-1 transition-colors group-hover:text-blue-400">{signal.title}</h4>
                   <p className="text-xs text-gray-400">{signal.description}</p>
                 </div>
               );

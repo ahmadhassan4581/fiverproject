@@ -196,7 +196,8 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4 badge-shimmer">
+            <Mail className="w-4 h-4" />
             Contact
           </span>
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
@@ -418,7 +419,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-medium text-white btn-primary rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-medium text-white bg-gradient-to-r from-blue-700 to-blue-600 rounded-xl cta-button ripple disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
@@ -446,9 +447,9 @@ const Contact = () => {
             
             <div className="space-y-4">
               {offices.map((office) => (
-                <div key={office.city} className="bg-gray-50 rounded-xl p-5">
+                <div key={office.city} className="office-card bg-gray-50 rounded-xl p-5 cursor-pointer">
                   <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <MapPin className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5 icon-hover" />
                     <div>
                       <h4 className="font-medium text-gray-900">{office.city}</h4>
                       <p className="text-sm text-gray-600">{office.address}</p>
@@ -480,10 +481,10 @@ const Contact = () => {
             {/* CTA */}
             <a
               href="#"
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-blue-700 bg-white border-2 border-blue-200 hover:border-blue-300 rounded-xl transition-colors"
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-blue-700 bg-white border-2 border-blue-200 rounded-xl cta-secondary"
             >
               Download Corporate Brochure
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 arrow-icon" />
             </a>
           </div>
         </div>

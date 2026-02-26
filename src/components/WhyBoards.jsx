@@ -59,18 +59,22 @@ const WhyBoards = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4 badge-shimmer">
+            <Building2 className="w-4 h-4" />
             Board Accountability
           </span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
             Why Boards Choose Branksa
           </h2>
+          <p className="text-xl text-blue-700 font-medium mb-6">
+            Built for High Risk and Regulated AI Globally
+          </p>
           <p className="text-lg text-gray-600 leading-relaxed">
-            Board accountability for high-risk AI systems has never been more critical. Directors face 
-            personal liability under the EU AI Act, sector-specific regulations impose strict governance 
-            requirements, and investors demand proof of responsible AI deployment. Branksa provides 
-            the enterprise-grade governance infrastructure that transforms regulatory compliance from 
-            a burden into a competitive advantage.
+            Boards and senior executives are accountable for AI systems that materially affect credit, 
+            healthcare outcomes, safety critical operations, workforce decisions, and public services. 
+            Branksa builds defensible global AI governance so boards can evidence control, withstand 
+            regulatory scrutiny, and accelerate compliant AI adoption instead of reacting to 
+            enforcement or remediation.
           </p>
         </div>
 
@@ -84,16 +88,16 @@ const WhyBoards = () => {
               return (
                 <div
                   key={cap.id}
-                  className={`border rounded-xl overflow-hidden transition-all duration-300 ${
-                    isExpanded ? 'border-blue-300 shadow-lg' : 'border-gray-200 hover:border-gray-300'
+                  className={`capability-card border rounded-xl overflow-hidden ${
+                    isExpanded ? 'border-blue-500 shadow-lg bg-blue-50/30' : 'border-gray-200'
                   }`}
                 >
                   <button
                     onClick={() => setExpandedCard(isExpanded ? null : cap.id)}
-                    className="w-full p-6 flex items-start gap-4 text-left"
+                    className="w-full p-6 flex items-start gap-4 text-left group"
                   >
-                    <div className={`p-3 rounded-lg ${isExpanded ? 'bg-blue-100' : 'bg-gray-100'}`}>
-                      <Icon className={`w-6 h-6 ${isExpanded ? 'text-blue-700' : 'text-gray-600'}`} />
+                    <div className={`capability-icon p-3 rounded-lg ${isExpanded ? 'bg-blue-100' : 'bg-gray-100 group-hover:bg-blue-50'}`}>
+                      <Icon className={`w-6 h-6 ${isExpanded ? 'text-blue-700' : 'text-gray-600 group-hover:text-blue-600'}`} />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
@@ -174,10 +178,10 @@ const WhyBoards = () => {
               {/* CTA */}
               <a
                 href="#contact"
-                className="mt-8 w-full inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white btn-primary rounded-lg"
+                className="mt-8 w-full inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white bg-gradient-to-r from-blue-700 to-blue-600 rounded-lg cta-button ripple"
               >
                 Schedule Board Risk Briefing
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 arrow-icon" />
               </a>
             </div>
           </div>

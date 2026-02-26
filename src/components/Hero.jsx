@@ -40,7 +40,7 @@ const Hero = () => {
           {/* Left Content */}
           <div className="space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 rounded-full badge-shimmer animate-float">
               <Shield className="w-4 h-4 text-blue-700" />
               <span className="text-sm font-medium text-blue-800">Enterprise AI Governance</span>
             </div>
@@ -48,7 +48,7 @@ const Hero = () => {
             {/* Headline */}
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
               Enterprise AI Governance for{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-500 animate-gradient">
                 High Risk Systems
               </span>
             </h1>
@@ -67,7 +67,7 @@ const Hero = () => {
             </p>
 
             {/* ROI Badge */}
-            <div className="inline-flex items-center gap-3 px-5 py-3 bg-emerald-50 border border-emerald-200 rounded-xl">
+            <div className="inline-flex items-center gap-3 px-5 py-3 bg-emerald-50 border border-emerald-200 rounded-xl animate-float-delayed">
               <CheckCircle className="w-6 h-6 text-emerald-600" />
               <div>
                 <p className="text-sm font-medium text-emerald-800">Proven ROI</p>
@@ -81,13 +81,13 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-medium text-white btn-primary rounded-xl shadow-lg shadow-blue-700/25"
+                className="group inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-medium text-white bg-gradient-to-r from-blue-700 to-blue-600 rounded-xl shadow-lg shadow-blue-700/25 cta-button ripple"
               >
                 Request Confidential Board Level Consultation
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-5 h-5 arrow-icon" />
               </a>
-              <button className="inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-medium text-blue-700 bg-white border-2 border-blue-200 hover:border-blue-300 rounded-xl transition-colors">
-                <Download className="w-5 h-5" />
+              <button className="group inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-medium text-blue-700 bg-white border-2 border-blue-200 rounded-xl cta-secondary">
+                <Download className="w-5 h-5 transition-transform group-hover:scale-110" />
                 Download AI Governance Readiness Diagnostic
               </button>
             </div>
@@ -111,12 +111,12 @@ const Hero = () => {
               {/* Risk Classes */}
               <div className="grid grid-cols-3 gap-3">
                 {riskClasses.map((risk) => (
-                  <div key={risk.label} className="p-3 bg-gray-50 rounded-lg">
+                  <div key={risk.label} className="p-3 bg-gray-50 rounded-lg stat-card cursor-pointer">
                     <div className="flex items-center gap-2 mb-2">
                       <div className={`w-3 h-3 rounded-full ${risk.color}`} />
-                      <span className="text-xs font-medium text-gray-600">{risk.label}</span>
+                      <span className="text-xs font-medium text-gray-600 stat-label">{risk.label}</span>
                     </div>
-                    <p className="text-2xl font-bold text-gray-900">{risk.count}</p>
+                    <p className="text-2xl font-bold text-gray-900 stat-number">{risk.count}</p>
                     <p className="text-xs text-gray-500">Systems</p>
                   </div>
                 ))}

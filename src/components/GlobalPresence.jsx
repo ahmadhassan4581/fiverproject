@@ -52,7 +52,8 @@ const GlobalPresence = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4 badge-shimmer">
+            <Globe className="w-4 h-4" />
             Global Reach
           </span>
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
@@ -125,7 +126,7 @@ const GlobalPresence = () => {
                 {offices.map((office) => (
                   <g
                     key={office.id}
-                    className="cursor-pointer"
+                    className="map-marker"
                     onMouseEnter={() => setActiveOffice(office.id)}
                     onMouseLeave={() => setActiveOffice(null)}
                   >
@@ -133,7 +134,7 @@ const GlobalPresence = () => {
                     <circle
                       cx={office.coordinates.cx}
                       cy={office.coordinates.cy}
-                      r={activeOffice === office.id ? 12 : 8}
+                      r={activeOffice === office.id ? 14 : 10}
                       className={`transition-all duration-300 ${
                         activeOffice === office.id 
                           ? 'fill-blue-600 opacity-20' 
@@ -143,7 +144,7 @@ const GlobalPresence = () => {
                     <circle
                       cx={office.coordinates.cx}
                       cy={office.coordinates.cy}
-                      r={activeOffice === office.id ? 6 : 4}
+                      r={activeOffice === office.id ? 7 : 5}
                       className={`transition-all duration-300 ${
                         activeOffice === office.id 
                           ? 'fill-blue-700 stroke-white stroke-2' 
@@ -206,10 +207,10 @@ const GlobalPresence = () => {
             {offices.map((office) => (
               <div
                 key={office.id}
-                className={`p-4 rounded-xl border transition-all duration-300 cursor-pointer ${
+                className={`office-card p-4 rounded-xl border cursor-pointer ${
                   activeOffice === office.id
-                    ? 'border-blue-300 bg-blue-50 shadow-md'
-                    : 'border-gray-200 bg-white hover:border-blue-200 hover:shadow-sm'
+                    ? 'office-card-active'
+                    : 'border-gray-200 bg-white'
                 }`}
                 onMouseEnter={() => setActiveOffice(office.id)}
                 onMouseLeave={() => setActiveOffice(null)}
@@ -244,10 +245,10 @@ const GlobalPresence = () => {
             {/* CTA */}
             <a
               href="#contact"
-              className="w-full mt-4 inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-medium text-white btn-primary rounded-xl transition-all duration-300 hover:scale-[1.02]"
+              className="w-full mt-4 inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-medium text-white bg-gradient-to-r from-blue-700 to-blue-600 rounded-xl cta-button ripple"
             >
               Contact Our Offices
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-5 h-5 arrow-icon" />
             </a>
           </div>
         </div>

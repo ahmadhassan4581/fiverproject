@@ -76,7 +76,8 @@ const CaseStudies = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4 badge-shimmer">
+            <Building2 className="w-4 h-4" />
             Illustrative Engagements
           </span>
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
@@ -98,16 +99,16 @@ const CaseStudies = () => {
             return (
               <div
                 key={caseStudy.id}
-                className={`bg-white border rounded-2xl overflow-hidden transition-all duration-300 ${
-                  isExpanded ? 'border-blue-300 shadow-lg lg:col-span-2' : 'border-gray-200 hover:border-gray-300'
+                className={`case-card bg-white border rounded-2xl overflow-hidden ${
+                  isExpanded ? 'border-blue-300 shadow-lg lg:col-span-2' : 'border-gray-200'
                 }`}
               >
                 <button
                   onClick={() => setExpandedCase(isExpanded ? null : caseStudy.id)}
-                  className="w-full p-6 lg:p-8 text-left"
+                  className="w-full p-6 lg:p-8 text-left group"
                 >
                   <div className="flex items-start gap-4">
-                    <div className={`p-3 rounded-lg ${isExpanded ? 'bg-blue-100' : 'bg-gray-100'}`}>
+                    <div className={`case-icon p-3 rounded-lg ${isExpanded ? 'bg-blue-100' : 'bg-gray-100'}`}>
                       <Icon className={`w-6 h-6 ${isExpanded ? 'text-blue-700' : 'text-gray-600'}`} />
                     </div>
                     <div className="flex-1">
@@ -183,10 +184,10 @@ const CaseStudies = () => {
         <div className="mt-12 text-center">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-4 text-base font-medium text-white btn-primary rounded-xl shadow-lg shadow-blue-700/25"
+            className="inline-flex items-center gap-2 px-8 py-4 text-base font-medium text-white bg-gradient-to-r from-blue-700 to-blue-600 rounded-xl shadow-lg shadow-blue-700/25 cta-button ripple"
           >
             Explore Similar Engagements for Your Sector
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-5 h-5 arrow-icon" />
           </a>
         </div>
       </div>
