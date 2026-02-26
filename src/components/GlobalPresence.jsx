@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Building2, Phone, ArrowRight } from 'lucide-react';
+import { MapPin, Building2, Phone, ArrowRight, Globe } from 'lucide-react';
 
 const GlobalPresence = () => {
   const [activeOffice, setActiveOffice] = useState(null);
