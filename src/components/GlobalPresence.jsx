@@ -1,0 +1,259 @@
+import { useState } from 'react';
+import { MapPin, Building2, Phone, ArrowRight } from 'lucide-react';
+
+const GlobalPresence = () => {
+  const [activeOffice, setActiveOffice] = useState(null);
+
+  const offices = [
+    {
+      id: 'london',
+      city: 'London',
+      country: 'UK',
+      role: 'EMEA Headquarters',
+      address: 'London, United Kingdom',
+      phone: '+44 20 XXXX XXXX',
+      region: 'Europe',
+      coordinates: { cx: 190, cy: 70 },
+    },
+    {
+      id: 'brussels',
+      city: 'Brussels',
+      country: 'Belgium',
+      role: 'EU Regulatory Hub',
+      address: 'Brussels, Belgium',
+      phone: '+32 2 XXX XX XX',
+      region: 'Europe',
+      coordinates: { cx: 200, cy: 65 },
+    },
+    {
+      id: 'newyork',
+      city: 'New York',
+      country: 'US',
+      role: 'Americas Center',
+      address: 'New York, United States',
+      phone: '+1 212 XXX XXXX',
+      region: 'Americas',
+      coordinates: { cx: 80, cy: 80 },
+    },
+    {
+      id: 'singapore',
+      city: 'Singapore',
+      country: 'APAC',
+      role: 'APAC Gateway',
+      address: 'Singapore',
+      phone: '+65 XXXX XXXX',
+      region: 'Asia Pacific',
+      coordinates: { cx: 300, cy: 100 },
+    },
+  ];
+
+  return (
+    <section id="global-presence" className="py-20 lg:py-28 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="inline-block px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4">
+            Global Reach
+          </span>
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            Global Presence
+          </h2>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            With offices across major financial and regulatory centers, we provide 
+            enterprise AI governance advisory with local expertise and global perspective.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* World Map - Takes 2 columns */}
+          <div className="lg:col-span-2">
+            <div className="relative bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-8 overflow-hidden">
+              <svg viewBox="0 0 400 200" className="w-full h-auto">
+                {/* World map background outline */}
+                <path 
+                  d="M60,80 Q80,60 100,70 T140,75" 
+                  fill="none" 
+                  stroke="#e2e8f0" 
+                  strokeWidth="2" 
+                />
+                <path 
+                  d="M160,50 Q200,40 240,55 T280,60" 
+                  fill="none" 
+                  stroke="#e2e8f0" 
+                  strokeWidth="2" 
+                />
+                <path 
+                  d="M280,70 Q320,75 350,90 T380,100" 
+                  fill="none" 
+                  stroke="#e2e8f0" 
+                  strokeWidth="2" 
+                />
+                <path 
+                  d="M100,130 Q120,140 140,135" 
+                  fill="none" 
+                  stroke="#e2e8f0" 
+                  strokeWidth="2" 
+                />
+                
+                {/* Connection lines between offices */}
+                <path 
+                  d="M80,80 Q135,72 190,70" 
+                  fill="none" 
+                  stroke="#3b82f6" 
+                  strokeWidth="1" 
+                  strokeDasharray="4" 
+                  opacity="0.5" 
+                />
+                <path 
+                  d="M190,70 Q195,67 200,65" 
+                  fill="none" 
+                  stroke="#3b82f6" 
+                  strokeWidth="1" 
+                  strokeDasharray="4" 
+                  opacity="0.5" 
+                />
+                <path 
+                  d="M200,65 Q250,82 300,100" 
+                  fill="none" 
+                  stroke="#3b82f6" 
+                  strokeWidth="1" 
+                  strokeDasharray="4" 
+                  opacity="0.5" 
+                />
+
+                {/* Office markers */}
+                {offices.map((office) => (
+                  <g
+                    key={office.id}
+                    className="cursor-pointer"
+                    onMouseEnter={() => setActiveOffice(office.id)}
+                    onMouseLeave={() => setActiveOffice(null)}
+                  >
+                    {/* Pulsing circle animation */}
+                    <circle
+                      cx={office.coordinates.cx}
+                      cy={office.coordinates.cy}
+                      r={activeOffice === office.id ? 12 : 8}
+                      className={`transition-all duration-300 ${
+                        activeOffice === office.id 
+                          ? 'fill-blue-600 opacity-20' 
+                          : 'fill-blue-500 opacity-10'
+                      }`}
+                    />
+                    <circle
+                      cx={office.coordinates.cx}
+                      cy={office.coordinates.cy}
+                      r={activeOffice === office.id ? 6 : 4}
+                      className={`transition-all duration-300 ${
+                        activeOffice === office.id 
+                          ? 'fill-blue-700 stroke-white stroke-2' 
+                          : 'fill-blue-600'
+                      }`}
+                    />
+                    
+                    {/* Tooltip - shown on hover */}
+                    {activeOffice === office.id && (
+                      <g>
+                        <rect
+                          x={office.coordinates.cx - 60}
+                          y={office.coordinates.cy - 50}
+                          width="120"
+                          height="35"
+                          rx="6"
+                          className="fill-gray-900"
+                        />
+                        <text
+                          x={office.coordinates.cx}
+                          y={office.coordinates.cy - 30}
+                          textAnchor="middle"
+                          className="fill-white text-xs font-medium"
+                        >
+                          {office.city}, {office.country}
+                        </text>
+                        <polygon
+                          points={`${office.coordinates.cx - 6},${office.coordinates.cy - 15} ${office.coordinates.cx + 6},${office.coordinates.cy - 15} ${office.coordinates.cx},${office.coordinates.cy - 8}`}
+                          className="fill-gray-900"
+                        />
+                      </g>
+                    )}
+                  </g>
+                ))}
+              </svg>
+
+              {/* Legend */}
+              <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-3">
+                {offices.map((office) => (
+                  <button
+                    key={office.id}
+                    onMouseEnter={() => setActiveOffice(office.id)}
+                    onMouseLeave={() => setActiveOffice(null)}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
+                      activeOffice === office.id
+                        ? 'bg-blue-700 text-white shadow-lg'
+                        : 'bg-white text-gray-700 border border-gray-200 hover:border-blue-300'
+                    }`}
+                  >
+                    {office.city}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Office List - Takes 1 column */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold text-gray-900 mb-6">Our Offices</h3>
+            {offices.map((office) => (
+              <div
+                key={office.id}
+                className={`p-4 rounded-xl border transition-all duration-300 cursor-pointer ${
+                  activeOffice === office.id
+                    ? 'border-blue-300 bg-blue-50 shadow-md'
+                    : 'border-gray-200 bg-white hover:border-blue-200 hover:shadow-sm'
+                }`}
+                onMouseEnter={() => setActiveOffice(office.id)}
+                onMouseLeave={() => setActiveOffice(null)}
+              >
+                <div className="flex items-start gap-3">
+                  <div className={`p-2 rounded-lg transition-colors duration-300 ${
+                    activeOffice === office.id ? 'bg-blue-100' : 'bg-gray-100'
+                  }`}>
+                    <MapPin className={`w-5 h-5 transition-colors duration-300 ${
+                      activeOffice === office.id ? 'text-blue-700' : 'text-gray-600'
+                    }`} />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-gray-900">{office.city}</h4>
+                    <p className="text-sm text-gray-500">{office.role}</p>
+                    <div className="mt-2 flex items-center gap-2 text-xs text-gray-400">
+                      <Building2 className="w-3 h-3" />
+                      <span>{office.address}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-gray-400">
+                      <Phone className="w-3 h-3" />
+                      <span>{office.phone}</span>
+                    </div>
+                    <span className="inline-block mt-2 px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">
+                      {office.region}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            {/* CTA */}
+            <a
+              href="#contact"
+              className="w-full mt-4 inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-medium text-white btn-primary rounded-xl transition-all duration-300 hover:scale-[1.02]"
+            >
+              Contact Our Offices
+              <ArrowRight className="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default GlobalPresence;

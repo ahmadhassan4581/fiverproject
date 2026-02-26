@@ -7,6 +7,7 @@ import Services from './components/Services'
 import CaseStudies from './components/CaseStudies'
 import BoardAssurance from './components/BoardAssurance'
 import Resources from './components/Resources'
+import GlobalPresence from './components/GlobalPresence'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
@@ -22,6 +23,7 @@ function App() {
         <CaseStudies />
         <BoardAssurance />
         <Resources />
+        <GlobalPresence />
         <Contact />
       </main>
       <Footer />

@@ -18,47 +18,59 @@ const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
+  // Updated sectors per client requirements
   const sectors = [
     'Financial Services',
-    'MedTech / Digital Health',
-    'Energy / Critical Infrastructure',
+    'MedTech',
+    'Energy',
+    'Transport',
+    'Critical Infrastructure',
     'HR Technology',
-    'AI Provider / Exporter',
+    'Technology/AI Platforms',
+    'Government/Public Sector',
     'Other',
   ];
 
+  // Updated revenue bands per client requirements
   const revenueBands = [
-    'Under €10M',
-    '€10M - €50M',
-    '€50M - €250M',
-    '€250M - €1B',
-    'Over €1B',
+    '<50M',
+    '50–250M',
+    '250M–1B',
+    '1–5B',
+    '5–20B',
+    '20B+ EUR/USD',
   ];
 
+  // Updated AI System Types per client requirements
   const aiSystemTypes = [
-    { id: 'high-risk', label: 'High Risk AI (EU AI Act)' },
-    { id: 'systemic', label: 'Systemic Risk / GPAI' },
-    { id: 'limited', label: 'Limited Risk AI' },
-    { id: 'credit', label: 'Credit Scoring' },
-    { id: 'recruitment', label: 'Recruitment / HR' },
-    { id: 'medical', label: 'Medical / Diagnostic' },
-    { id: 'infrastructure', label: 'Critical Infrastructure' },
-    { id: 'other', label: 'Other AI Systems' },
+    { id: 'credit', label: 'Credit' },
+    { id: 'fraud', label: 'Fraud' },
+    { id: 'clinical', label: 'Clinical' },
+    { id: 'safety', label: 'Safety' },
+    { id: 'hr', label: 'HR' },
+    { id: 'risk', label: 'Risk' },
+    { id: 'autonomous', label: 'Autonomous' },
+    { id: 'energy', label: 'Energy' },
+    { id: 'cross-domain', label: 'Cross-domain' },
+    { id: 'other', label: 'Other' },
   ];
 
+  // Updated Market Exposure per client requirements
   const marketExposure = [
-    { id: 'eu', label: 'European Union' },
-    { id: 'uk', label: 'United Kingdom' },
-    { id: 'us', label: 'United States' },
-    { id: 'apac', label: 'Asia Pacific' },
-    { id: 'latam', label: 'Latin America' },
-    { id: 'mea', label: 'Middle East / Africa' },
+    { id: 'eu', label: 'EU' },
+    { id: 'uk', label: 'UK' },
+    { id: 'us', label: 'US' },
+    { id: 'apac', label: 'APAC' },
+    { id: 'latam', label: 'LATAM' },
+    { id: 'mea', label: 'MEA' },
+    { id: 'emerging', label: 'Emerging' },
   ];
 
+  // Updated timeframes per client requirements
   const timeframes = [
-    'Within 1 week',
-    'Within 2 weeks',
-    'Within 1 month',
+    '3 days',
+    '1 week',
+    '2 weeks',
     'Flexible',
   ];
 
