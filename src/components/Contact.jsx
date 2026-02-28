@@ -419,7 +419,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-medium text-[#0a0a0a] bg-[#c6a43f] hover:bg-[#d4b75a] rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-[#c6a43f]/20"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-medium text-[#0a0a0a] bg-[#c6a43f] rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-[#c6a43f]/20"
                 >
                   {isSubmitting ? (
                     <>
