@@ -48,18 +48,18 @@ const GlobalPresence = () => {
   ];
 
   return (
-    <section id="global-presence" className="py-20 lg:py-28 bg-white">
+    <section id="global-presence" className="py-20 lg:py-28 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4 badge-shimmer">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#1a1a1a] border border-[#c6a43f]/30 text-[#c6a43f] text-sm font-medium rounded-full mb-4">
             <Globe className="w-4 h-4" />
             Global Reach
           </span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
             Global Presence
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-lg text-[#a3a3a3] leading-relaxed">
             With offices across major financial and regulatory centers, we provide 
             enterprise AI governance advisory with local expertise and global perspective.
           </p>
@@ -68,31 +68,31 @@ const GlobalPresence = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* World Map - Takes 2 columns */}
           <div className="lg:col-span-2">
-            <div className="relative bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-8 overflow-hidden">
+            <div className="relative bg-gradient-to-br from-[#111111] to-[#1a1a1a] rounded-2xl p-8 overflow-hidden border border-[#2a2a2a]">
               <svg viewBox="0 0 400 200" className="w-full h-auto">
                 {/* World map background outline */}
                 <path 
                   d="M60,80 Q80,60 100,70 T140,75" 
                   fill="none" 
-                  stroke="#e2e8f0" 
+                  stroke="#2a2a2a" 
                   strokeWidth="2" 
                 />
                 <path 
                   d="M160,50 Q200,40 240,55 T280,60" 
                   fill="none" 
-                  stroke="#e2e8f0" 
+                  stroke="#2a2a2a" 
                   strokeWidth="2" 
                 />
                 <path 
                   d="M280,70 Q320,75 350,90 T380,100" 
                   fill="none" 
-                  stroke="#e2e8f0" 
+                  stroke="#2a2a2a" 
                   strokeWidth="2" 
                 />
                 <path 
                   d="M100,130 Q120,140 140,135" 
                   fill="none" 
-                  stroke="#e2e8f0" 
+                  stroke="#2a2a2a" 
                   strokeWidth="2" 
                 />
                 
@@ -100,7 +100,7 @@ const GlobalPresence = () => {
                 <path 
                   d="M80,80 Q135,72 190,70" 
                   fill="none" 
-                  stroke="#3b82f6" 
+                  stroke="#c6a43f" 
                   strokeWidth="1" 
                   strokeDasharray="4" 
                   opacity="0.5" 
@@ -108,7 +108,7 @@ const GlobalPresence = () => {
                 <path 
                   d="M190,70 Q195,67 200,65" 
                   fill="none" 
-                  stroke="#3b82f6" 
+                  stroke="#c6a43f" 
                   strokeWidth="1" 
                   strokeDasharray="4" 
                   opacity="0.5" 
@@ -116,7 +116,7 @@ const GlobalPresence = () => {
                 <path 
                   d="M200,65 Q250,82 300,100" 
                   fill="none" 
-                  stroke="#3b82f6" 
+                  stroke="#c6a43f" 
                   strokeWidth="1" 
                   strokeDasharray="4" 
                   opacity="0.5" 
@@ -137,8 +137,8 @@ const GlobalPresence = () => {
                       r={activeOffice === office.id ? 14 : 10}
                       className={`transition-all duration-300 ${
                         activeOffice === office.id 
-                          ? 'fill-blue-600 opacity-20' 
-                          : 'fill-blue-500 opacity-10'
+                          ? 'fill-[#c6a43f] opacity-20' 
+                          : 'fill-[#c6a43f] opacity-10'
                       }`}
                     />
                     <circle
@@ -147,8 +147,8 @@ const GlobalPresence = () => {
                       r={activeOffice === office.id ? 7 : 5}
                       className={`transition-all duration-300 ${
                         activeOffice === office.id 
-                          ? 'fill-blue-700 stroke-white stroke-2' 
-                          : 'fill-blue-600'
+                          ? 'fill-[#c6a43f] stroke-white stroke-2' 
+                          : 'fill-[#c6a43f]'
                       }`}
                     />
                     
@@ -161,7 +161,7 @@ const GlobalPresence = () => {
                           width="120"
                           height="35"
                           rx="6"
-                          className="fill-gray-900"
+                          className="fill-[#1a1a1a]"
                         />
                         <text
                           x={office.coordinates.cx}
@@ -173,7 +173,7 @@ const GlobalPresence = () => {
                         </text>
                         <polygon
                           points={`${office.coordinates.cx - 6},${office.coordinates.cy - 15} ${office.coordinates.cx + 6},${office.coordinates.cy - 15} ${office.coordinates.cx},${office.coordinates.cy - 8}`}
-                          className="fill-gray-900"
+                          className="fill-[#1a1a1a]"
                         />
                       </g>
                     )}
@@ -190,8 +190,8 @@ const GlobalPresence = () => {
                     onMouseLeave={() => setActiveOffice(null)}
                     className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 ${
                       activeOffice === office.id
-                        ? 'bg-blue-700 text-white shadow-lg'
-                        : 'bg-white text-gray-700 border border-gray-200 hover:border-blue-300'
+                        ? 'bg-[#c6a43f] text-[#0a0a0a] shadow-lg'
+                        : 'bg-[#1a1a1a] text-[#a3a3a3] border border-[#2a2a2a] hover:border-[#c6a43f]/50'
                     }`}
                   >
                     {office.city}
@@ -203,38 +203,38 @@ const GlobalPresence = () => {
 
           {/* Office List - Takes 1 column */}
           <div className="space-y-4">
-            <h3 className="text-xl font-semibold text-gray-900 mb-6">Our Offices</h3>
+            <h3 className="text-xl font-semibold text-white mb-6">Our Offices</h3>
             {offices.map((office) => (
               <div
                 key={office.id}
-                className={`office-card p-4 rounded-xl border cursor-pointer ${
+                className={`p-4 rounded-xl border cursor-pointer transition-all ${
                   activeOffice === office.id
-                    ? 'office-card-active'
-                    : 'border-gray-200 bg-white'
+                    ? 'border-[#c6a43f] bg-[#1a1a1a] shadow-lg shadow-[#c6a43f]/10'
+                    : 'border-[#2a2a2a] bg-[#1a1a1a] hover:border-[#c6a43f]/50'
                 }`}
                 onMouseEnter={() => setActiveOffice(office.id)}
                 onMouseLeave={() => setActiveOffice(null)}
               >
                 <div className="flex items-start gap-3">
                   <div className={`p-2 rounded-lg transition-colors duration-300 ${
-                    activeOffice === office.id ? 'bg-blue-100' : 'bg-gray-100'
+                    activeOffice === office.id ? 'bg-[#c6a43f]/20' : 'bg-[#2a2a2a]'
                   }`}>
                     <MapPin className={`w-5 h-5 transition-colors duration-300 ${
-                      activeOffice === office.id ? 'text-blue-700' : 'text-gray-600'
+                      activeOffice === office.id ? 'text-[#c6a43f]' : 'text-[#a3a3a3]'
                     }`} />
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-semibold text-gray-900">{office.city}</h4>
-                    <p className="text-sm text-gray-500">{office.role}</p>
-                    <div className="mt-2 flex items-center gap-2 text-xs text-gray-400">
+                    <h4 className="font-semibold text-white">{office.city}</h4>
+                    <p className="text-sm text-[#a3a3a3]">{office.role}</p>
+                    <div className="mt-2 flex items-center gap-2 text-xs text-[#737373]">
                       <Building2 className="w-3 h-3" />
                       <span>{office.address}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-xs text-gray-400">
+                    <div className="flex items-center gap-2 text-xs text-[#737373]">
                       <Mail className="w-3 h-3" />
                       <span>{office.email}</span>
                     </div>
-                    <span className="inline-block mt-2 px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">
+                    <span className="inline-block mt-2 px-2 py-1 bg-[#c6a43f]/10 text-[#c6a43f] text-xs font-medium rounded">
                       {office.region}
                     </span>
                   </div>
@@ -245,10 +245,10 @@ const GlobalPresence = () => {
             {/* CTA */}
             <a
               href="#contact"
-              className="w-full mt-4 inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-medium text-white bg-gradient-to-r from-blue-700 to-blue-600 rounded-xl cta-button ripple"
+              className="w-full mt-4 btn-primary inline-flex items-center justify-center gap-2"
             >
               Contact Our Offices
-              <ArrowRight className="w-5 h-5 arrow-icon" />
+              <ArrowRight className="w-5 h-5" />
             </a>
           </div>
         </div>

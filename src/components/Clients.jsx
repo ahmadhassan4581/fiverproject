@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown, ChevronUp, Cpu, Building2, HeartPulse, Users2, Zap, TrendingUp, ArrowRight, Globe } from 'lucide-react';
+import { ChevronDown, ChevronUp, Cpu, Building2, HeartPulse, Users2, Zap, TrendingUp, ArrowRight, Globe, Check } from 'lucide-react';
 
 const Clients = () => {
   const [expandedSector, setExpandedSector] = useState(0);
@@ -64,18 +64,18 @@ const Clients = () => {
   ];
 
   return (
-    <section id="clients" className="py-20 lg:py-28 bg-gray-50">
+    <section id="clients" className="py-20 lg:py-28 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4 badge-shimmer">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#1a1a1a] border border-[#c6a43f]/30 text-[#c6a43f] text-sm font-medium rounded-full mb-4">
             <Globe className="w-4 h-4" />
             Client Base
           </span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
             Who We Work With
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-lg text-[#a3a3a3] leading-relaxed">
             Branksa advises organizations designing, deploying, or investing in AI systems globally. 
             Our sector-specific expertise ensures that governance frameworks address the unique regulatory 
             and operational challenges of each industry.
@@ -92,27 +92,26 @@ const Clients = () => {
               return (
                 <div
                   key={sector.id}
-                  className={`sector-card bg-white border rounded-xl overflow-hidden ${
-                    isExpanded ? 'border-blue-300 shadow-lg' : 'border-gray-200'
-                  }`}
-                >
+                  className={`bg-[#1a1a1a] border rounded-xl overflow-hidden transition-all duration-300 ${
+                    isExpanded ? 'border-[#c6a43f] shadow-lg shadow-[#c6a43f]/10' : 'border-[#2a2a2a] hover:border-[#c6a43f]/50'
+                  }`}>
                   <button
                     onClick={() => setExpandedSector(isExpanded ? null : sector.id)}
                     className="w-full p-5 flex items-start gap-4 text-left group"
                   >
-                    <div className={`sector-icon p-3 rounded-lg ${isExpanded ? 'bg-blue-100' : 'bg-gray-100'}`}>
-                      <Icon className={`w-6 h-6 ${isExpanded ? 'text-blue-700' : 'text-gray-600'}`} />
+                    <div className={`p-3 rounded-lg transition-all duration-300 ${isExpanded ? 'bg-[#c6a43f]/20' : 'bg-[#2a2a2a] group-hover:bg-[#c6a43f]/10'}`}>
+                      <Icon className={`w-6 h-6 transition-colors ${isExpanded ? 'text-[#c6a43f]' : 'text-[#a3a3a3] group-hover:text-[#c6a43f]'}`} />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
-                        <h3 className="text-lg font-semibold text-gray-900 sector-title">{sector.title}</h3>
+                        <h3 className="text-lg font-semibold text-white">{sector.title}</h3>
                         {isExpanded ? (
-                          <ChevronUp className="w-5 h-5 text-gray-400" />
+                          <ChevronUp className="w-5 h-5 text-[#c6a43f]" />
                         ) : (
-                          <ChevronDown className="w-5 h-5 text-gray-400" />
+                          <ChevronDown className="w-5 h-5 text-[#737373]" />
                         )}
                       </div>
-                      <p className="text-gray-600 mt-1 text-sm">{sector.summary}</p>
+                      <p className="text-[#a3a3a3] mt-1 text-sm">{sector.summary}</p>
                     </div>
                   </button>
 
@@ -121,13 +120,13 @@ const Clients = () => {
                       isExpanded ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
                     }`}
                   >
-                    <div className="px-5 pb-5 pt-0 border-t border-gray-100">
-                      <p className="text-gray-600 text-sm mb-4">{sector.details}</p>
+                    <div className="px-5 pb-5 pt-0 border-t border-[#2a2a2a]">
+                      <p className="text-[#a3a3a3] text-sm mb-4">{sector.details}</p>
                       <div className="space-y-2">
-                        <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Key Challenges</p>
+                        <p className="text-xs font-semibold text-[#c6a43f] uppercase tracking-wide">Key Challenges</p>
                         {sector.challenges.map((challenge, idx) => (
-                          <div key={idx} className="flex items-center gap-2 text-sm text-gray-700">
-                            <div className="w-1.5 h-1.5 bg-blue-500 rounded-full" />
+                          <div key={idx} className="flex items-center gap-2 text-sm text-[#a3a3a3]">
+                            <div className="w-1.5 h-1.5 bg-[#c6a43f] rounded-full" />
                             {challenge}
                           </div>
                         ))}
@@ -142,93 +141,79 @@ const Clients = () => {
           {/* Global Map & CTA */}
           <div className="space-y-6">
             {/* Global Coverage Map */}
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200">
+            <div className="bg-[#1a1a1a] rounded-2xl p-6 border border-[#2a2a2a]">
               <div className="flex items-center gap-2 mb-4">
-                <Globe className="w-5 h-5 text-blue-600" />
-                <h3 className="font-semibold text-gray-900">Global Client Coverage</h3>
+                <Globe className="w-5 h-5 text-[#c6a43f]" />
+                <h3 className="font-semibold text-white">Global Client Coverage</h3>
               </div>
               
-              <div className="relative h-64 bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl overflow-hidden">
+              <div className="relative h-64 bg-gradient-to-br from-[#111111] to-[#1a1a1a] rounded-xl overflow-hidden border border-[#2a2a2a]">
                 <svg viewBox="0 0 400 250" className="absolute inset-0 w-full h-full">
                   {/* Simplified world map */}
-                  <path d="M60,80 Q80,60 100,70 T140,75" fill="none" stroke="#e2e8f0" strokeWidth="2" />
-                  <path d="M160,50 Q200,40 240,55 T280,60" fill="none" stroke="#e2e8f0" strokeWidth="2" />
-                  <path d="M280,70 Q320,75 350,90 T380,100" fill="none" stroke="#e2e8f0" strokeWidth="2" />
+                  <path d="M60,80 Q80,60 100,70 T140,75" fill="none" stroke="#2a2a2a" strokeWidth="2" />
+                  <path d="M160,50 Q200,40 240,55 T280,60" fill="none" stroke="#2a2a2a" strokeWidth="2" />
+                  <path d="M280,70 Q320,75 350,90 T380,100" fill="none" stroke="#2a2a2a" strokeWidth="2" />
                   
                   {/* North America */}
-                  <circle cx="80" cy="80" r="5" className="fill-blue-600 map-pin" />
-                  <circle cx="70" cy="90" r="4" className="fill-blue-500 map-pin" style={{ animationDelay: '0.2s' }} />
-                  <circle cx="90" cy="85" r="3" className="fill-blue-400 map-pin" style={{ animationDelay: '0.4s' }} />
+                  <circle cx="80" cy="80" r="5" className="fill-[#c6a43f] map-pin" />
+                  <circle cx="70" cy="90" r="4" className="fill-[#a88a2f] map-pin" style={{ animationDelay: '0.2s' }} />
+                  <circle cx="90" cy="85" r="3" className="fill-[#d4b75a] map-pin" style={{ animationDelay: '0.4s' }} />
                   
                   {/* Europe */}
-                  <circle cx="190" cy="70" r="6" className="fill-blue-600 map-pin" style={{ animationDelay: '0.6s' }} />
-                  <circle cx="200" cy="65" r="5" className="fill-blue-500 map-pin" style={{ animationDelay: '0.8s' }} />
-                  <circle cx="185" cy="75" r="4" className="fill-blue-400 map-pin" style={{ animationDelay: '1s' }} />
-                  <circle cx="205" cy="70" r="3" className="fill-blue-400 map-pin" style={{ animationDelay: '1.2s' }} />
+                  <circle cx="190" cy="70" r="6" className="fill-[#c6a43f] map-pin" style={{ animationDelay: '0.6s' }} />
+                  <circle cx="200" cy="65" r="5" className="fill-[#a88a2f] map-pin" style={{ animationDelay: '0.8s' }} />
+                  <circle cx="185" cy="75" r="4" className="fill-[#d4b75a] map-pin" style={{ animationDelay: '1s' }} />
+                  <circle cx="205" cy="70" r="3" className="fill-[#d4b75a] map-pin" style={{ animationDelay: '1.2s' }} />
                   
                   {/* Asia Pacific */}
-                  <circle cx="300" cy="100" r="5" className="fill-blue-600 map-pin" style={{ animationDelay: '1.4s' }} />
-                  <circle cx="320" cy="90" r="4" className="fill-blue-500 map-pin" style={{ animationDelay: '1.6s' }} />
-                  <circle cx="310" cy="110" r="3" className="fill-blue-400 map-pin" style={{ animationDelay: '1.8s' }} />
+                  <circle cx="300" cy="100" r="5" className="fill-[#c6a43f] map-pin" style={{ animationDelay: '1.4s' }} />
+                  <circle cx="320" cy="90" r="4" className="fill-[#a88a2f] map-pin" style={{ animationDelay: '1.6s' }} />
+                  <circle cx="310" cy="110" r="3" className="fill-[#d4b75a] map-pin" style={{ animationDelay: '1.8s' }} />
                   
                   {/* Latin America */}
-                  <circle cx="120" cy="140" r="4" className="fill-blue-500 map-pin" style={{ animationDelay: '2s' }} />
-                  <circle cx="110" cy="150" r="3" className="fill-blue-400 map-pin" style={{ animationDelay: '2.2s' }} />
+                  <circle cx="120" cy="140" r="4" className="fill-[#a88a2f] map-pin" style={{ animationDelay: '2s' }} />
+                  <circle cx="110" cy="150" r="3" className="fill-[#d4b75a] map-pin" style={{ animationDelay: '2.2s' }} />
                   
                   {/* Middle East / Africa */}
-                  <circle cx="230" cy="110" r="4" className="fill-blue-500 map-pin" style={{ animationDelay: '2.4s' }} />
-                  
-                  {/* Sector icons */}
-                  <g transform="translate(75, 70)">
-                    <circle r="8" className="fill-white" />
-                    <text x="0" y="3" textAnchor="middle" className="fill-blue-700 text-xs">🏦</text>
-                  </g>
-                  <g transform="translate(185, 58)">
-                    <circle r="8" className="fill-white" />
-                    <text x="0" y="3" textAnchor="middle" className="fill-blue-700 text-xs">🏥</text>
-                  </g>
-                  <g transform="translate(295, 88)">
-                    <circle r="8" className="fill-white" />
-                    <text x="0" y="3" textAnchor="middle" className="fill-blue-700 text-xs">⚡</text>
-                  </g>
+                  <circle cx="230" cy="110" r="4" className="fill-[#a88a2f] map-pin" style={{ animationDelay: '2.4s' }} />
                 </svg>
                 
                 {/* Legend */}
                 <div className="absolute bottom-3 left-3 right-3 flex flex-wrap gap-2">
-                  <span className="px-2 py-1 bg-white/90 text-xs text-gray-700 rounded shadow">Financial Services</span>
-                  <span className="px-2 py-1 bg-white/90 text-xs text-gray-700 rounded shadow">Healthcare</span>
-                  <span className="px-2 py-1 bg-white/90 text-xs text-gray-700 rounded shadow">Energy</span>
+                  <span className="px-2 py-1 bg-[#111111]/90 border border-[#2a2a2a] text-xs text-[#a3a3a3] rounded">Financial Services</span>
+                  <span className="px-2 py-1 bg-[#111111]/90 border border-[#2a2a2a] text-xs text-[#a3a3a3] rounded">Healthcare</span>
+                  <span className="px-2 py-1 bg-[#111111]/90 border border-[#2a2a2a] text-xs text-[#a3a3a3] rounded">Energy</span>
                 </div>
               </div>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="stat-card bg-white rounded-xl p-5 shadow-sm border border-gray-200 text-center cursor-pointer">
-                <p className="text-3xl font-bold text-blue-700 stat-number">50+</p>
-                <p className="text-sm text-gray-600">Enterprise Clients</p>
+              <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-5 text-center hover:border-[#c6a43f]/50 transition-all">
+                <p className="text-3xl font-bold text-[#c6a43f]">50+</p>
+                <p className="text-sm text-[#a3a3a3]">Enterprise Clients</p>
               </div>
-              <div className="stat-card bg-white rounded-xl p-5 shadow-sm border border-gray-200 text-center cursor-pointer">
-                <p className="text-3xl font-bold text-blue-700 stat-number">25+</p>
-                <p className="text-sm text-gray-600">Jurisdictions</p>
+              <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-5 text-center hover:border-[#c6a43f]/50 transition-all">
+                <p className="text-3xl font-bold text-[#c6a43f]">25+</p>
+                <p className="text-sm text-[#a3a3a3]">Jurisdictions</p>
               </div>
-              <div className="stat-card bg-white rounded-xl p-5 shadow-sm border border-gray-200 text-center cursor-pointer">
-                <p className="text-3xl font-bold text-blue-700 stat-number">200+</p>
-                <p className="text-sm text-gray-600">AI Systems Governed</p>
+              <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-5 text-center hover:border-[#c6a43f]/50 transition-all">
+                <p className="text-3xl font-bold text-[#c6a43f]">200+</p>
+                <p className="text-sm text-[#a3a3a3]">AI Systems Governed</p>
               </div>
-              <div className="stat-card bg-white rounded-xl p-5 shadow-sm border border-gray-200 text-center cursor-pointer">
-                <p className="text-3xl font-bold text-blue-700 stat-number">€35M</p>
-                <p className="text-sm text-gray-600">Risk Reduced</p>
+              <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-xl p-5 text-center hover:border-[#c6a43f]/50 transition-all">
+                <p className="text-3xl font-bold text-[#c6a43f]">€35M</p>
+                <p className="text-sm text-[#a3a3a3]">Risk Reduced</p>
               </div>
             </div>
 
             {/* CTA */}
             <a
               href="#contact"
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-medium text-white bg-gradient-to-r from-blue-700 to-blue-600 rounded-xl cta-button ripple"
+              className="btn-primary w-full inline-flex items-center justify-center gap-2"
             >
               Determine Your Global AI Compliance Scope
-              <ArrowRight className="w-5 h-5 arrow-icon" />
+              <ArrowRight className="w-5 h-5" />
             </a>
           </div>
         </div>
