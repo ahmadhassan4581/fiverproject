@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Building2, Phone, ArrowRight, Globe } from 'lucide-react';
+import { MapPin, Building2, Mail, ArrowRight, Globe } from 'lucide-react';
 
 const GlobalPresence = () => {
   const [activeOffice, setActiveOffice] = useState(null);
@@ -11,7 +11,7 @@ const GlobalPresence = () => {
       country: 'UK',
       role: 'EMEA Headquarters',
       address: 'London, United Kingdom',
-      phone: '+44 20 XXXX XXXX',
+      email: 'example@gmail.com',
       region: 'Europe',
       coordinates: { cx: 190, cy: 70 },
     },
@@ -21,7 +21,7 @@ const GlobalPresence = () => {
       country: 'Belgium',
       role: 'EU Regulatory Hub',
       address: 'Brussels, Belgium',
-      phone: '+32 2 XXX XX XX',
+      email: 'example@gmail.com',
       region: 'Europe',
       coordinates: { cx: 200, cy: 65 },
     },
@@ -31,7 +31,7 @@ const GlobalPresence = () => {
       country: 'US',
       role: 'Americas Center',
       address: 'New York, United States',
-      phone: '+1 212 XXX XXXX',
+      email: 'example@gmail.com',
       region: 'Americas',
       coordinates: { cx: 80, cy: 80 },
     },
@@ -41,7 +41,7 @@ const GlobalPresence = () => {
       country: 'APAC',
       role: 'APAC Gateway',
       address: 'Singapore',
-      phone: '+65 XXXX XXXX',
+      email: 'example@gmail.com',
       region: 'Asia Pacific',
       coordinates: { cx: 300, cy: 100 },
     },
@@ -231,8 +231,8 @@ const GlobalPresence = () => {
                       <span>{office.address}</span>
                     </div>
                     <div className="flex items-center gap-2 text-xs text-gray-400">
-                      <Phone className="w-3 h-3" />
-                      <span>{office.phone}</span>
+                      <Mail className="w-3 h-3" />
+                      <span>{office.email}</span>
                     </div>
                     <span className="inline-block mt-2 px-2 py-1 bg-blue-100 text-blue-700 text-xs font-medium rounded">
                       {office.region}
