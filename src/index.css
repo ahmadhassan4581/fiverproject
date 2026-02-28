@@ -114,12 +114,11 @@ p {
 }
 
 .btn-primary:hover {
-  color: var(--color-bg-primary);
-  border-color: var(--color-accent);
+  /* Hover effects removed to prevent display issues */
 }
 
 .btn-primary:hover::before {
-  left: 0;
+  /* Background slide effect removed */
 }
 
 .btn-secondary {
