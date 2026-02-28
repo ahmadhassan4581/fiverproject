@@ -1,13 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Shield } from 'lucide-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
-  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,40 +15,19 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { href: '#hero', path: '/home', label: 'Home' },
-    { href: '#why-boards', path: '/why-boards', label: 'Why Branksa' },
-    { href: '#clients', path: '/clients', label: 'Clients' },
-    { href: '#services', path: '/services', label: 'Services' },
-    { href: '#case-studies', path: '/case-studies', label: 'Engagements' },
-    { href: '#board-assurance', path: '/board-assurance', label: 'Board Assurance' },
-    { href: '#resources', path: '/resources', label: 'Resources' },
-    { href: '#contact', path: '/contact', label: 'Contact' },
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'Why Branksa' },
+    { path: '/clients', label: 'Clients' },
+    { path: '/services', label: 'Services' },
+    { path: '/engagements', label: 'Engagements' },
+    { path: '/board-assurance', label: 'Board Assurance' },
+    { path: '/resources', label: 'Resources' },
+    { path: '/contact', label: 'Contact' },
   ];
 
-  const handleNavClick = (e, link) => {
-    e.preventDefault();
+  const handleLinkClick = () => {
     setIsMobileMenuOpen(false);
-
-    if (isHomePage) {
-      // On home page, scroll to section
-      const element = document.querySelector(link.href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      // On other pages, navigate to the section page
-      navigate(link.path);
-    }
-  };
-
-  const handleLogoClick = (e) => {
-    e.preventDefault();
-    setIsMobileMenuOpen(false);
-    if (isHomePage) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      navigate('/');
-    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -65,7 +41,11 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2 flex-shrink-0">
+          <Link 
+            to="/" 
+            onClick={handleLinkClick}
+            className="flex items-center gap-2 flex-shrink-0"
+          >
             <Shield className="w-8 h-8 text-[#c6a43f]" />
             <span className="text-xl font-bold text-white whitespace-nowrap">Branksa</span>
           </Link>
@@ -76,7 +56,7 @@ const Navigation = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                onClick={(e) => handleNavClick(e, link)}
+                onClick={handleLinkClick}
                 className="text-xs font-medium text-[#a3a3a3] hover:text-[#c6a43f] transition-colors uppercase tracking-wider whitespace-nowrap"
               >
                 {link.label}
@@ -88,14 +68,14 @@ const Navigation = () => {
           <div className="hidden xl:block flex-shrink-0">
             <Link
               to="/contact"
-              onClick={(e) => handleNavClick(e, { href: '#contact', path: '/contact' })}
+              onClick={handleLinkClick}
               className="btn-primary text-sm py-2.5 px-4"
             >
               Request Consultation
             </Link>
           </div>
 
-          {/* Mobile/Tablet Menu Button - shown on lg and below */}
+          {/* Mobile/Tablet Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="xl:hidden p-2 text-[#a3a3a3] hover:text-white"
@@ -105,7 +85,7 @@ const Navigation = () => {
           </button>
         </div>
 
-        {/* Mobile Menu - shown on xl and below */}
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="xl:hidden absolute top-full left-0 right-0 bg-[#111111] border-t border-[#2a2a2a] py-4">
             <div className="px-4 space-y-1">
@@ -113,7 +93,7 @@ const Navigation = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  onClick={(e) => handleNavClick(e, link)}
+                  onClick={handleLinkClick}
                   className="block px-4 py-3 text-sm font-medium text-[#a3a3a3] hover:text-[#c6a43f] hover:bg-[#1a1a1a] rounded-lg transition-colors uppercase tracking-wider"
                 >
                   {link.label}
@@ -121,7 +101,7 @@ const Navigation = () => {
               ))}
               <Link
                 to="/contact"
-                onClick={(e) => handleNavClick(e, { href: '#contact', path: '/contact' })}
+                onClick={handleLinkClick}
                 className="block mt-3 btn-primary text-center"
               >
                 Request Consultation
