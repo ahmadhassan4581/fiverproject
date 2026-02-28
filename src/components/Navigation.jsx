@@ -57,7 +57,7 @@ const Navigation = () => {
                 key={link.path}
                 to={link.path}
                 onClick={handleLinkClick}
-                className="text-xs font-medium text-[#a3a3a3] hover:text-[#c6a43f] transition-colors uppercase tracking-wider whitespace-nowrap"
+                className="text-xs font-medium text-[#a3a3a3] transition-colors uppercase tracking-wider whitespace-nowrap"
               >
                 {link.label}
               </Link>
