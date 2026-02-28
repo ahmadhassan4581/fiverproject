@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
@@ -10,24 +11,38 @@ import Resources from './components/Resources'
 import GlobalPresence from './components/GlobalPresence'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import PrivacyPolicy from './components/PrivacyPolicy'
+
+function Home() {
+  return (
+    <>
+      <Hero />
+      <WhyBoards />
+      <Clients />
+      <Services />
+      <CaseStudies />
+      <BoardAssurance />
+      <Resources />
+      <GlobalPresence />
+      <Contact />
+    </>
+  );
+}
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Navigation />
-      <main>
-        <Hero />
-        <WhyBoards />
-        <Clients />
-        <Services />
-        <CaseStudies />
-        <BoardAssurance />
-        <Resources />
-        <GlobalPresence />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen bg-white">
+        <Navigation />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   )
 }
 

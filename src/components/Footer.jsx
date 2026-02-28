@@ -1,4 +1,5 @@
 import { Shield, Check, Globe, Lock, FileCheck, RefreshCw, Award } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const trustSignals = [
@@ -200,9 +201,9 @@ const Footer = () => {
             © {currentYear} Branksa Enterprise AI Governance and Regulatory Advisory. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-sm text-gray-500 hover:text-white transition-colors">
+            <Link to="/privacy-policy" className="text-sm text-gray-500 hover:text-white transition-colors">
               Privacy Policy
-            </a>
+            </Link>
             <a href="#" className="text-sm text-gray-500 hover:text-white transition-colors">
               Terms of Service
             </a>
