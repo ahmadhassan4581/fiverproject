@@ -78,18 +78,18 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 lg:py-28 bg-white">
+    <section id="services" className="py-20 lg:py-28 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4 badge-shimmer">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#1a1a1a] border border-[#c6a43f]/30 text-[#c6a43f] text-sm font-medium rounded-full mb-4">
             <ClipboardCheck className="w-4 h-4" />
             Full Lifecycle Support
           </span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
             Services Across the AI Governance Lifecycle
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-lg text-[#a3a3a3] leading-relaxed">
             From initial regulatory scoping to ongoing assurance and transaction due diligence, 
             Branksa provides comprehensive support across the entire AI governance lifecycle. Each 
             service is tailored to your organization's specific sector, risk profile, and regulatory exposure.
@@ -105,34 +105,34 @@ const Services = () => {
             return (
               <div
                 key={service.id}
-                className={`service-card border rounded-xl overflow-hidden ${
-                  isExpanded ? 'border-blue-300 shadow-lg' : 'border-gray-200'
+                className={`bg-[#1a1a1a] border rounded-xl overflow-hidden transition-all duration-300 ${
+                  isExpanded ? 'border-[#c6a43f] shadow-lg shadow-[#c6a43f]/10' : 'border-[#2a2a2a] hover:border-[#c6a43f]/50'
                 }`}
               >
                 <button
                   onClick={() => setExpandedService(isExpanded ? null : service.id)}
                   className="w-full p-6 flex items-start gap-4 text-left group"
                 >
-                  <div className={`p-3 rounded-lg transition-all duration-300 ${isExpanded ? 'bg-blue-100 scale-110' : 'bg-gray-100 group-hover:bg-blue-50 group-hover:scale-105'}`}>
-                    <Icon className={`w-6 h-6 transition-colors ${isExpanded ? 'text-blue-700' : 'text-gray-600 group-hover:text-blue-600'}`} />
+                  <div className={`p-3 rounded-lg transition-all duration-300 ${isExpanded ? 'bg-[#c6a43f]/20 scale-110' : 'bg-[#2a2a2a] group-hover:bg-[#c6a43f]/10 group-hover:scale-105'}`}>
+                    <Icon className={`w-6 h-6 transition-colors ${isExpanded ? 'text-[#c6a43f]' : 'text-[#a3a3a3] group-hover:text-[#c6a43f]'}`} />
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-1">
-                      <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+                      <span className="text-xs font-medium text-[#737373] uppercase tracking-wide">
                         {service.phase}
                       </span>
-                      <span className="text-xs text-gray-400">|</span>
-                      <span className="text-xs font-medium text-blue-600">{service.timeline}</span>
+                      <span className="text-xs text-[#737373]">|</span>
+                      <span className="text-xs font-medium text-[#c6a43f]">{service.timeline}</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <h3 className="text-lg font-semibold text-gray-900">{service.title}</h3>
+                      <h3 className="text-lg font-semibold text-white">{service.title}</h3>
                       {isExpanded ? (
-                        <ChevronUp className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                        <ChevronUp className="w-5 h-5 text-[#c6a43f] flex-shrink-0" />
                       ) : (
-                        <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                        <ChevronDown className="w-5 h-5 text-[#737373] flex-shrink-0" />
                       )}
                     </div>
-                    <p className="text-gray-600 mt-1">{service.summary}</p>
+                    <p className="text-[#a3a3a3] mt-1">{service.summary}</p>
                   </div>
                 </button>
 
@@ -141,17 +141,17 @@ const Services = () => {
                     isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <div className="px-6 pb-6 pt-0 border-t border-gray-100">
-                    <p className="text-gray-600 mb-6">{service.details}</p>
+                  <div className="px-6 pb-6 pt-0 border-t border-[#2a2a2a]">
+                    <p className="text-[#a3a3a3] mb-6">{service.details}</p>
                     
                     <div className="grid md:grid-cols-2 gap-6">
                       {/* Deliverables */}
                       <div>
-                        <p className="text-sm font-semibold text-gray-900 mb-3">Key Deliverables</p>
+                        <p className="text-sm font-semibold text-white mb-3">Key Deliverables</p>
                         <ul className="space-y-2">
                           {service.deliverables.map((deliverable, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                              <Check className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                            <li key={idx} className="flex items-start gap-2 text-sm text-[#a3a3a3]">
+                              <Check className="w-4 h-4 text-[#c6a43f] flex-shrink-0 mt-0.5" />
                               {deliverable}
                             </li>
                           ))}
@@ -160,10 +160,10 @@ const Services = () => {
 
                       {/* Timeline & CTA */}
                       <div className="flex flex-col justify-between">
-                        <div className="bg-gray-50 rounded-lg p-4">
-                          <p className="text-sm font-medium text-gray-700">Typical Duration</p>
-                          <p className="text-lg font-semibold text-gray-900">{service.timeline}</p>
-                          <p className="text-xs text-gray-500 mt-1">Varies based on scope and complexity</p>
+                        <div className="bg-[#111111] border border-[#2a2a2a] rounded-lg p-4">
+                          <p className="text-sm font-medium text-[#a3a3a3]">Typical Duration</p>
+                          <p className="text-lg font-semibold text-white">{service.timeline}</p>
+                          <p className="text-xs text-[#737373] mt-1">Varies based on scope and complexity</p>
                         </div>
                       </div>
                     </div>
@@ -178,10 +178,10 @@ const Services = () => {
         <div className="mt-12 text-center">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-4 text-base font-medium text-white bg-gradient-to-r from-blue-700 to-blue-600 rounded-xl shadow-lg shadow-blue-700/25 cta-button ripple"
+            className="btn-primary"
           >
             Engage Branksa for Enterprise AI Governance
-            <ArrowRight className="w-5 h-5 arrow-icon" />
+            <ArrowRight className="w-5 h-5 inline-block ml-2" />
           </a>
         </div>
       </div>

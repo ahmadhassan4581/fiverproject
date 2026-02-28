@@ -72,18 +72,18 @@ const CaseStudies = () => {
   ];
 
   return (
-    <section id="case-studies" className="py-20 lg:py-28 bg-gray-50">
+    <section id="case-studies" className="py-20 lg:py-28 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4 badge-shimmer">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#1a1a1a] border border-[#c6a43f]/30 text-[#c6a43f] text-sm font-medium rounded-full mb-4">
             <Building2 className="w-4 h-4" />
             Illustrative Engagements
           </span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
             Selected Client Engagements
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-lg text-[#a3a3a3] leading-relaxed">
             The following case studies illustrate typical Branksa engagements across sectors and 
             regulatory scenarios. Each engagement is tailored to the specific context, risk profile, 
             and regulatory exposure of the client.
@@ -99,8 +99,8 @@ const CaseStudies = () => {
             return (
               <div
                 key={caseStudy.id}
-                className={`case-card bg-white border rounded-2xl overflow-hidden ${
-                  isExpanded ? 'border-blue-300 shadow-lg lg:col-span-2' : 'border-gray-200'
+                className={`bg-[#1a1a1a] border rounded-2xl overflow-hidden transition-all duration-300 ${
+                  isExpanded ? 'border-[#c6a43f] shadow-lg shadow-[#c6a43f]/10 lg:col-span-2' : 'border-[#2a2a2a] hover:border-[#c6a43f]/50'
                 }`}
               >
                 <button
@@ -108,19 +108,19 @@ const CaseStudies = () => {
                   className="w-full p-6 lg:p-8 text-left group"
                 >
                   <div className="flex items-start gap-4">
-                    <div className={`case-icon p-3 rounded-lg ${isExpanded ? 'bg-blue-100' : 'bg-gray-100'}`}>
-                      <Icon className={`w-6 h-6 ${isExpanded ? 'text-blue-700' : 'text-gray-600'}`} />
+                    <div className={`p-3 rounded-lg transition-all ${isExpanded ? 'bg-[#c6a43f]/20' : 'bg-[#2a2a2a] group-hover:bg-[#c6a43f]/10'}`}>
+                      <Icon className={`w-6 h-6 transition-colors ${isExpanded ? 'text-[#c6a43f]' : 'text-[#a3a3a3] group-hover:text-[#c6a43f]'}`} />
                     </div>
                     <div className="flex-1">
-                      <span className="inline-block px-3 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded-full mb-2">
+                      <span className="inline-block px-3 py-1 bg-[#2a2a2a] text-[#c6a43f] text-xs font-medium rounded-full mb-2">
                         {caseStudy.sector}
                       </span>
                       <div className="flex items-start justify-between gap-4">
-                        <h3 className="text-xl font-semibold text-gray-900">{caseStudy.title}</h3>
+                        <h3 className="text-xl font-semibold text-white">{caseStudy.title}</h3>
                         {isExpanded ? (
-                          <ChevronUp className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                          <ChevronUp className="w-5 h-5 text-[#c6a43f] flex-shrink-0" />
                         ) : (
-                          <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                          <ChevronDown className="w-5 h-5 text-[#737373] flex-shrink-0" />
                         )}
                       </div>
                     </div>
@@ -132,45 +132,45 @@ const CaseStudies = () => {
                     isExpanded ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <div className="px-6 lg:px-8 pb-8 pt-0 border-t border-gray-100">
+                  <div className="px-6 lg:px-8 pb-8 pt-0 border-t border-[#2a2a2a]">
                     <div className="grid lg:grid-cols-3 gap-8">
                       {/* Challenge & Approach */}
                       <div className="lg:col-span-2 space-y-6">
                         <div>
-                          <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-2">Challenge</h4>
-                          <p className="text-gray-600">{caseStudy.challenge}</p>
+                          <h4 className="text-sm font-semibold text-white uppercase tracking-wide mb-2">Challenge</h4>
+                          <p className="text-[#a3a3a3]">{caseStudy.challenge}</p>
                         </div>
                         
                         <div>
-                          <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-2">Approach</h4>
-                          <p className="text-gray-600">{caseStudy.approach}</p>
+                          <h4 className="text-sm font-semibold text-white uppercase tracking-wide mb-2">Approach</h4>
+                          <p className="text-[#a3a3a3]">{caseStudy.approach}</p>
                         </div>
 
                         <div>
-                          <h4 className="text-sm font-semibold text-gray-900 uppercase tracking-wide mb-2">Key Outcomes</h4>
+                          <h4 className="text-sm font-semibold text-white uppercase tracking-wide mb-2">Key Outcomes</h4>
                           <ul className="space-y-2">
                             {caseStudy.outcomes.map((outcome, idx) => (
-                              <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                                <div className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0" />
+                              <li key={idx} className="flex items-start gap-2 text-sm text-[#a3a3a3]">
+                                <div className="w-1.5 h-1.5 bg-[#c6a43f] rounded-full mt-2 flex-shrink-0" />
                                 {outcome}
                               </li>
                             ))}
                           </ul>
                         </div>
 
-                        <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4">
-                          <h4 className="text-sm font-semibold text-emerald-800 mb-1">Results</h4>
-                          <p className="text-sm text-emerald-700">{caseStudy.results}</p>
+                        <div className="bg-[#c6a43f]/10 border border-[#c6a43f]/30 rounded-lg p-4">
+                          <h4 className="text-sm font-semibold text-[#c6a43f] mb-1">Results</h4>
+                          <p className="text-sm text-[#a3a3a3]">{caseStudy.results}</p>
                         </div>
                       </div>
 
                       {/* Quote */}
-                      <div className="bg-gray-50 rounded-xl p-6 flex flex-col justify-center">
-                        <Quote className="w-8 h-8 text-blue-300 mb-4" />
-                        <blockquote className="text-gray-700 italic mb-4">
+                      <div className="bg-[#111111] border border-[#2a2a2a] rounded-xl p-6 flex flex-col justify-center">
+                        <Quote className="w-8 h-8 text-[#c6a43f] mb-4" />
+                        <blockquote className="text-[#a3a3a3] italic mb-4">
                           "{caseStudy.quote}"
                         </blockquote>
-                        <p className="text-sm text-gray-500">— Client Feedback</p>
+                        <p className="text-sm text-[#737373]">— Client Feedback</p>
                       </div>
                     </div>
                   </div>
@@ -184,10 +184,10 @@ const CaseStudies = () => {
         <div className="mt-12 text-center">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-4 text-base font-medium text-white bg-gradient-to-r from-blue-700 to-blue-600 rounded-xl shadow-lg shadow-blue-700/25 cta-button ripple"
+            className="btn-primary"
           >
             Explore Similar Engagements for Your Sector
-            <ArrowRight className="w-5 h-5 arrow-icon" />
+            <ArrowRight className="w-5 h-5 inline-block ml-2" />
           </a>
         </div>
       </div>

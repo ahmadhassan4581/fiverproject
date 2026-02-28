@@ -116,18 +116,18 @@ const BoardAssurance = () => {
   ];
 
   return (
-    <section id="board-assurance" className="py-20 lg:py-28 bg-white">
+    <section id="board-assurance" className="py-20 lg:py-28 bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-100 text-blue-800 text-sm font-medium rounded-full mb-4 badge-shimmer">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#1a1a1a] border border-[#c6a43f]/30 text-[#c6a43f] text-sm font-medium rounded-full mb-4">
             <AlertCircle className="w-4 h-4" />
             Board Protection
           </span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
             Board Level Assurance
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-lg text-[#a3a3a3] leading-relaxed">
             Under the EU AI Act and emerging global regulations, board members face direct accountability 
             for AI governance failures. Branksa provides the assurance infrastructure that enables boards 
             to discharge their duties with confidence.
@@ -144,31 +144,31 @@ const BoardAssurance = () => {
               return (
                 <div
                   key={area.id}
-                  className={`service-card border rounded-xl overflow-hidden ${
-                    isExpanded ? 'border-blue-300 shadow-lg' : 'border-gray-200'
+                  className={`bg-[#1a1a1a] border rounded-xl overflow-hidden transition-all duration-300 ${
+                    isExpanded ? 'border-[#c6a43f] shadow-lg shadow-[#c6a43f]/10' : 'border-[#2a2a2a] hover:border-[#c6a43f]/50'
                   }`}
                 >
                   <button
                     onClick={() => setExpandedSection(isExpanded ? null : area.id)}
                     className="w-full p-6 flex items-start gap-4 text-left group"
                   >
-                    <div className={`p-3 rounded-lg transition-all duration-300 ${isExpanded ? 'bg-blue-100 scale-110' : 'bg-gray-100 group-hover:bg-blue-50 group-hover:scale-105'}`}>
-                      <Icon className={`w-6 h-6 transition-colors ${isExpanded ? 'text-blue-700' : 'text-gray-600 group-hover:text-blue-600'}`} />
+                    <div className={`p-3 rounded-lg transition-all duration-300 ${isExpanded ? 'bg-[#c6a43f]/20 scale-110' : 'bg-[#2a2a2a] group-hover:bg-[#c6a43f]/10 group-hover:scale-105'}`}>
+                      <Icon className={`w-6 h-6 transition-colors ${isExpanded ? 'text-[#c6a43f]' : 'text-[#a3a3a3] group-hover:text-[#c6a43f]'}`} />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
                         <div>
-                          <h3 className="text-lg font-semibold text-gray-900">{area.title}</h3>
-                          <p className="text-sm text-gray-500">{area.subtitle}</p>
+                          <h3 className="text-lg font-semibold text-white">{area.title}</h3>
+                          <p className="text-sm text-[#737373]">{area.subtitle}</p>
                         </div>
                         {isExpanded ? (
-                          <ChevronUp className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                          <ChevronUp className="w-5 h-5 text-[#c6a43f] flex-shrink-0" />
                         ) : (
-                          <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                          <ChevronDown className="w-5 h-5 text-[#737373] flex-shrink-0" />
                         )}
                       </div>
                       {!isExpanded && (
-                        <p className="text-gray-600 mt-2 text-sm">{area.summary}</p>
+                        <p className="text-[#a3a3a3] mt-2 text-sm">{area.summary}</p>
                       )}
                     </div>
                   </button>
@@ -178,14 +178,14 @@ const BoardAssurance = () => {
                       isExpanded ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
                     }`}
                   >
-                    <div className="px-6 pb-6 pt-0 border-t border-gray-100">
-                      <p className="text-gray-600 mb-6">{area.summary}</p>
+                    <div className="px-6 pb-6 pt-0 border-t border-[#2a2a2a]">
+                      <p className="text-[#a3a3a3] mb-6">{area.summary}</p>
                       
                       <div className="grid sm:grid-cols-2 gap-4">
                         {area.details.map((detail, idx) => (
-                          <div key={idx} className="bg-gray-50 rounded-lg p-4">
-                            <h4 className="text-sm font-semibold text-gray-900 mb-2">{detail.heading}</h4>
-                            <p className="text-sm text-gray-600">{detail.content}</p>
+                          <div key={idx} className="bg-[#111111] border border-[#2a2a2a] rounded-lg p-4">
+                            <h4 className="text-sm font-semibold text-white mb-2">{detail.heading}</h4>
+                            <p className="text-sm text-[#a3a3a3]">{detail.content}</p>
                           </div>
                         ))}
                       </div>
@@ -199,15 +199,15 @@ const BoardAssurance = () => {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Board Responsibilities */}
-            <div className="bg-gray-50 rounded-2xl p-6">
+            <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-2xl p-6">
               <div className="flex items-center gap-2 mb-4">
-                <AlertCircle className="w-5 h-5 text-blue-600" />
-                <h3 className="font-semibold text-gray-900">Board AI Responsibilities</h3>
+                <AlertCircle className="w-5 h-5 text-[#c6a43f]" />
+                <h3 className="font-semibold text-white">Board AI Responsibilities</h3>
               </div>
               <ul className="space-y-3">
                 {boardResponsibilities.map((responsibility, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
-                    <Check className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                  <li key={idx} className="flex items-start gap-2 text-sm text-[#a3a3a3]">
+                    <Check className="w-4 h-4 text-[#c6a43f] flex-shrink-0 mt-0.5" />
                     {responsibility}
                   </li>
                 ))}
@@ -215,14 +215,14 @@ const BoardAssurance = () => {
             </div>
 
             {/* Liability Alert */}
-            <div className="bg-red-50 border border-red-200 rounded-2xl p-6">
-              <h3 className="font-semibold text-red-900 mb-2">Regulatory Liability Alert</h3>
-              <p className="text-sm text-red-700 mb-4">
+            <div className="bg-[#c6a43f]/10 border border-[#c6a43f]/30 rounded-2xl p-6">
+              <h3 className="font-semibold text-[#c6a43f] mb-2">Regulatory Liability Alert</h3>
+              <p className="text-sm text-[#a3a3a3] mb-4">
                 Under EU AI Act Article 71, board members can face personal liability for AI governance 
                 failures resulting in significant harm or non-compliance.
               </p>
-              <p className="text-sm text-red-700">
-                Penalties can reach up to <strong>EUR 35 million or 7% of global turnover</strong> for 
+              <p className="text-sm text-[#a3a3a3]">
+                Penalties can reach up to <strong className="text-[#c6a43f]">EUR 35 million or 7% of global turnover</strong> for 
                 systemic violations.
               </p>
             </div>
@@ -230,10 +230,10 @@ const BoardAssurance = () => {
             {/* CTA */}
             <a
               href="#contact"
-              className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 text-base font-medium text-white bg-gradient-to-r from-blue-700 to-blue-600 rounded-xl cta-button ripple"
+              className="w-full btn-primary flex justify-center"
             >
               Secure Board Level Compliance
-              <ArrowRight className="w-5 h-5 arrow-icon" />
+              <ArrowRight className="w-5 h-5 inline-block ml-2" />
             </a>
           </div>
         </div>

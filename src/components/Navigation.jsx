@@ -37,7 +37,7 @@ const Navigation = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-md'
+          ? 'bg-[#0a0a0a]/95 backdrop-blur-md border-b border-[#2a2a2a]'
           : 'bg-transparent'
       }`}
     >
@@ -45,8 +45,8 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="#hero" onClick={(e) => scrollToSection(e, '#hero')} className="flex items-center gap-2">
-            <Shield className="w-8 h-8 text-blue-700" />
-            <span className="text-xl font-bold text-gray-900">Branksa</span>
+            <Shield className="w-8 h-8 text-[#c6a43f]" />
+            <span className="text-xl font-bold text-white">Branksa</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -56,7 +56,7 @@ const Navigation = () => {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className="text-sm font-medium text-gray-600 hover:text-blue-700 transition-colors"
+                className="text-sm font-medium text-[#a3a3a3] hover:text-[#c6a43f] transition-colors uppercase tracking-wider"
               >
                 {link.label}
               </a>
@@ -68,7 +68,7 @@ const Navigation = () => {
             <a
               href="#contact"
               onClick={(e) => scrollToSection(e, '#contact')}
-              className="inline-flex items-center px-4 py-2 text-sm font-medium text-white btn-primary rounded-lg"
+              className="btn-primary"
             >
               Request Consultation
             </a>
@@ -77,7 +77,7 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-gray-600 hover:text-gray-900"
+            className="lg:hidden p-2 text-[#a3a3a3] hover:text-white"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -86,14 +86,14 @@ const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-200 py-4">
+          <div className="lg:hidden absolute top-full left-0 right-0 bg-[#111111] border-t border-[#2a2a2a] py-4">
             <div className="px-4 space-y-1">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={(e) => scrollToSection(e, link.href)}
-                  className="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-colors"
+                  className="block px-4 py-3 text-sm font-medium text-[#a3a3a3] hover:text-[#c6a43f] hover:bg-[#1a1a1a] rounded-lg transition-colors uppercase tracking-wider"
                 >
                   {link.label}
                 </a>
@@ -101,7 +101,7 @@ const Navigation = () => {
               <a
                 href="#contact"
                 onClick={(e) => scrollToSection(e, '#contact')}
-                className="block mt-3 px-4 py-3 text-sm font-medium text-white btn-primary rounded-lg text-center"
+                className="block mt-3 btn-primary text-center"
               >
                 Request Consultation
               </a>

@@ -67,20 +67,20 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="footer" className="bg-gray-900 text-white">
+    <footer id="footer" className="bg-[#0a0a0a] border-t border-[#2a2a2a]">
       {/* Trust Signals */}
-      <div className="border-b border-gray-800">
+      <div className="border-b border-[#2a2a2a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {trustSignals.map((signal) => {
               const Icon = signal.icon;
               return (
                 <div key={signal.title} className="flex flex-col items-center text-center group cursor-pointer">
-                  <div className="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mb-3 transition-all duration-300 group-hover:bg-blue-600 group-hover:scale-110">
-                    <Icon className="w-6 h-6 text-blue-400 transition-colors group-hover:text-white" />
+                  <div className="w-12 h-12 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg flex items-center justify-center mb-3 transition-all duration-300 group-hover:bg-[#c6a43f]/20 group-hover:border-[#c6a43f] group-hover:scale-110">
+                    <Icon className="w-6 h-6 text-[#c6a43f] transition-colors" />
                   </div>
-                  <h4 className="text-sm font-medium text-white mb-1 transition-colors group-hover:text-blue-400">{signal.title}</h4>
-                  <p className="text-xs text-gray-400">{signal.description}</p>
+                  <h4 className="text-sm font-medium text-white mb-1">{signal.title}</h4>
+                  <p className="text-xs text-[#737373]">{signal.description}</p>
                 </div>
               );
             })}
@@ -94,24 +94,24 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <Shield className="w-8 h-8 text-blue-400" />
-              <span className="text-xl font-bold">Branksa</span>
+              <Shield className="w-8 h-8 text-[#c6a43f]" />
+              <span className="text-xl font-bold text-white">Branksa</span>
             </div>
-            <p className="text-gray-400 text-sm mb-6">
+            <p className="text-[#a3a3a3] text-sm mb-6">
               Enterprise AI Governance and Regulatory Advisory. Defensible governance for 
               high-risk AI systems across global jurisdictions.
             </p>
             <div className="space-y-2">
-              <div className="flex items-center gap-2 text-sm text-gray-400">
-                <Check className="w-4 h-4 text-emerald-500" />
+              <div className="flex items-center gap-2 text-sm text-[#a3a3a3]">
+                <Check className="w-4 h-4 text-[#c6a43f]" />
                 EU AI Act Expertise
               </div>
-              <div className="flex items-center gap-2 text-sm text-gray-400">
-                <Check className="w-4 h-4 text-emerald-500" />
+              <div className="flex items-center gap-2 text-sm text-[#a3a3a3]">
+                <Check className="w-4 h-4 text-[#c6a43f]" />
                 Board-Level Accountability
               </div>
-              <div className="flex items-center gap-2 text-sm text-gray-400">
-                <Check className="w-4 h-4 text-emerald-500" />
+              <div className="flex items-center gap-2 text-sm text-[#a3a3a3]">
+                <Check className="w-4 h-4 text-[#c6a43f]" />
                 Supervisory-Ready Evidence
               </div>
             </div>
@@ -119,13 +119,13 @@ const Footer = () => {
 
           {/* Links */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Services</h4>
+            <h4 className="font-semibold text-white mb-4 uppercase text-sm tracking-wider">Services</h4>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                    className="text-sm text-[#a3a3a3] hover:text-[#c6a43f] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -135,13 +135,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">Sectors</h4>
+            <h4 className="font-semibold text-white mb-4 uppercase text-sm tracking-wider">Sectors</h4>
             <ul className="space-y-2">
               {footerLinks.sectors.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                    className="text-sm text-[#a3a3a3] hover:text-[#c6a43f] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -151,13 +151,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">Resources</h4>
+            <h4 className="font-semibold text-white mb-4 uppercase text-sm tracking-wider">Resources</h4>
             <ul className="space-y-2">
               {footerLinks.resources.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                    className="text-sm text-[#a3a3a3] hover:text-[#c6a43f] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -167,13 +167,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-white mb-4">Company</h4>
+            <h4 className="font-semibold text-white mb-4 uppercase text-sm tracking-wider">Company</h4>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                    className="text-sm text-[#a3a3a3] hover:text-[#c6a43f] transition-colors"
                   >
                     {link.label}
                   </a>
@@ -184,9 +184,9 @@ const Footer = () => {
         </div>
 
         {/* SEO Keywords */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
-          <p className="text-xs text-gray-500 mb-4">
-            <strong>Keywords:</strong> EU AI Act compliance, AI governance consulting, 
+        <div className="mt-12 pt-8 border-t border-[#2a2a2a]">
+          <p className="text-xs text-[#737373] mb-4">
+            <strong className="text-[#a3a3a3]">Keywords:</strong> EU AI Act compliance, AI governance consulting, 
             high-risk AI systems, AI Act Article 6, Annex IV documentation, AI conformity assessment, 
             AI risk management, GDPR AI compliance, algorithmic accountability, AI board governance, 
             AI regulatory advisory, machine learning governance, AI model risk management, 
@@ -196,18 +196,18 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-gray-500">
+        <div className="mt-8 pt-8 border-t border-[#2a2a2a] flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-[#737373]">
             © {currentYear} Branksa Enterprise AI Governance and Regulatory Advisory. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <Link to="/privacy-policy" className="text-sm text-gray-500 hover:text-white transition-colors">
+            <Link to="/privacy-policy" className="text-sm text-[#737373] hover:text-[#c6a43f] transition-colors">
               Privacy Policy
             </Link>
-            <a href="#" className="text-sm text-gray-500 hover:text-white transition-colors">
+            <a href="#" className="text-sm text-[#737373] hover:text-[#c6a43f] transition-colors">
               Terms of Service
             </a>
-            <a href="#" className="text-sm text-gray-500 hover:text-white transition-colors">
+            <a href="#" className="text-sm text-[#737373] hover:text-[#c6a43f] transition-colors">
               Cookie Policy
             </a>
           </div>
