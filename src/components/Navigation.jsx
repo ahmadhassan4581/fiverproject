@@ -65,19 +65,19 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2">
+          <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2 flex-shrink-0">
             <Shield className="w-8 h-8 text-[#c6a43f]" />
-            <span className="text-xl font-bold text-white">Branksa</span>
+            <span className="text-xl font-bold text-white whitespace-nowrap">Branksa</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden xl:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 onClick={(e) => handleNavClick(e, link)}
-                className="text-sm font-medium text-[#a3a3a3] hover:text-[#c6a43f] transition-colors uppercase tracking-wider"
+                className="text-xs font-medium text-[#a3a3a3] hover:text-[#c6a43f] transition-colors uppercase tracking-wider whitespace-nowrap"
               >
                 {link.label}
               </Link>
@@ -85,29 +85,29 @@ const Navigation = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden lg:block">
+          <div className="hidden xl:block flex-shrink-0">
             <Link
               to="/contact"
               onClick={(e) => handleNavClick(e, { href: '#contact', path: '/contact' })}
-              className="btn-primary"
+              className="btn-primary text-sm py-2.5 px-4"
             >
               Request Consultation
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile/Tablet Menu Button - shown on lg and below */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-[#a3a3a3] hover:text-white"
+            className="xl:hidden p-2 text-[#a3a3a3] hover:text-white"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - shown on xl and below */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden absolute top-full left-0 right-0 bg-[#111111] border-t border-[#2a2a2a] py-4">
+          <div className="xl:hidden absolute top-full left-0 right-0 bg-[#111111] border-t border-[#2a2a2a] py-4">
             <div className="px-4 space-y-1">
               {navLinks.map((link) => (
                 <Link
