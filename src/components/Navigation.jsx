@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Shield } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,23 +18,40 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { href: '#hero', label: 'Home' },
-    { href: '#why-boards', label: 'Why Branksa' },
-    { href: '#clients', label: 'Clients' },
-    { href: '#services', label: 'Services' },
-    { href: '#case-studies', label: 'Engagements' },
-    { href: '#board-assurance', label: 'Board Assurance' },
-    { href: '#resources', label: 'Resources' },
-    { href: '#contact', label: 'Contact' },
+    { href: '#hero', path: '/home', label: 'Home' },
+    { href: '#why-boards', path: '/why-boards', label: 'Why Branksa' },
+    { href: '#clients', path: '/clients', label: 'Clients' },
+    { href: '#services', path: '/services', label: 'Services' },
+    { href: '#case-studies', path: '/case-studies', label: 'Engagements' },
+    { href: '#board-assurance', path: '/board-assurance', label: 'Board Assurance' },
+    { href: '#resources', path: '/resources', label: 'Resources' },
+    { href: '#contact', path: '/contact', label: 'Contact' },
   ];
 
-  const scrollToSection = (e, href) => {
+  const handleNavClick = (e, link) => {
     e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
     setIsMobileMenuOpen(false);
+
+    if (isHomePage) {
+      // On home page, scroll to section
+      const element = document.querySelector(link.href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // On other pages, navigate to the section page
+      navigate(link.path);
+    }
+  };
+
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    if (isHomePage) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+    }
   };
 
   return (
@@ -44,34 +65,34 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <a href="#hero" onClick={(e) => scrollToSection(e, '#hero')} className="flex items-center gap-2">
+          <Link to="/" onClick={handleLogoClick} className="flex items-center gap-2">
             <Shield className="w-8 h-8 text-[#c6a43f]" />
             <span className="text-xl font-bold text-white">Branksa</span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => scrollToSection(e, link.href)}
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={(e) => handleNavClick(e, link)}
                 className="text-sm font-medium text-[#a3a3a3] hover:text-[#c6a43f] transition-colors uppercase tracking-wider"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <a
-              href="#contact"
-              onClick={(e) => scrollToSection(e, '#contact')}
+            <Link
+              to="/contact"
+              onClick={(e) => handleNavClick(e, { href: '#contact', path: '/contact' })}
               className="btn-primary"
             >
               Request Consultation
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -89,22 +110,22 @@ const Navigation = () => {
           <div className="lg:hidden absolute top-full left-0 right-0 bg-[#111111] border-t border-[#2a2a2a] py-4">
             <div className="px-4 space-y-1">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => scrollToSection(e, link.href)}
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={(e) => handleNavClick(e, link)}
                   className="block px-4 py-3 text-sm font-medium text-[#a3a3a3] hover:text-[#c6a43f] hover:bg-[#1a1a1a] rounded-lg transition-colors uppercase tracking-wider"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
-              <a
-                href="#contact"
-                onClick={(e) => scrollToSection(e, '#contact')}
+              <Link
+                to="/contact"
+                onClick={(e) => handleNavClick(e, { href: '#contact', path: '/contact' })}
                 className="block mt-3 btn-primary text-center"
               >
                 Request Consultation
-              </a>
+              </Link>
             </div>
           </div>
         )}

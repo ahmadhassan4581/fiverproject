@@ -37,30 +37,30 @@ const Footer = () => {
 
   const footerLinks = {
     services: [
-      { label: 'Baseline Assessment', href: '#services' },
-      { label: 'Governance Architecture', href: '#services' },
-      { label: 'Ongoing Assurance', href: '#services' },
-      { label: 'Incident Response', href: '#services' },
-      { label: 'Executive Training', href: '#services' },
+      { label: 'Baseline Assessment', path: '/services' },
+      { label: 'Governance Architecture', path: '/services' },
+      { label: 'Ongoing Assurance', path: '/services' },
+      { label: 'Incident Response', path: '/services' },
+      { label: 'Executive Training', path: '/services' },
     ],
     sectors: [
-      { label: 'Financial Services', href: '#clients' },
-      { label: 'MedTech & Health', href: '#clients' },
-      { label: 'Critical Infrastructure', href: '#clients' },
-      { label: 'HR Technology', href: '#clients' },
-      { label: 'AI Providers', href: '#clients' },
+      { label: 'Financial Services', path: '/clients' },
+      { label: 'MedTech & Health', path: '/clients' },
+      { label: 'Critical Infrastructure', path: '/clients' },
+      { label: 'HR Technology', path: '/clients' },
+      { label: 'AI Providers', path: '/clients' },
     ],
     resources: [
-      { label: 'AI Governance Template', href: '#resources' },
-      { label: 'Board Briefing', href: '#resources' },
-      { label: 'Annex IV Guide', href: '#resources' },
-      { label: 'Regulatory Updates', href: '#resources' },
+      { label: 'AI Governance Template', path: '/resources' },
+      { label: 'Board Briefing', path: '/resources' },
+      { label: 'Annex IV Guide', path: '/resources' },
+      { label: 'Regulatory Updates', path: '/resources' },
     ],
     company: [
-      { label: 'About Branksa', href: '#why-boards' },
-      { label: 'Our Approach', href: '#why-boards' },
-      { label: 'Global Offices', href: '#contact' },
-      { label: 'Contact Us', href: '#contact' },
+      { label: 'About Branksa', path: '/why-boards' },
+      { label: 'Our Approach', path: '/why-boards' },
+      { label: 'Global Offices', path: '/global-presence' },
+      { label: 'Contact Us', path: '/contact' },
     ],
   };
 
@@ -123,12 +123,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.path}
                     className="text-sm text-[#a3a3a3] hover:text-[#c6a43f] transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -139,12 +139,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.sectors.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.path}
                     className="text-sm text-[#a3a3a3] hover:text-[#c6a43f] transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -155,12 +155,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.resources.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.path}
                     className="text-sm text-[#a3a3a3] hover:text-[#c6a43f] transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -171,12 +171,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.path}
                     className="text-sm text-[#a3a3a3] hover:text-[#c6a43f] transition-colors"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -204,12 +204,12 @@ const Footer = () => {
             <Link to="/privacy-policy" className="text-sm text-[#737373] hover:text-[#c6a43f] transition-colors">
               Privacy Policy
             </Link>
-            <a href="#" className="text-sm text-[#737373] hover:text-[#c6a43f] transition-colors">
+            <Link to="/" className="text-sm text-[#737373] hover:text-[#c6a43f] transition-colors">
               Terms of Service
-            </a>
-            <a href="#" className="text-sm text-[#737373] hover:text-[#c6a43f] transition-colors">
+            </Link>
+            <Link to="/" className="text-sm text-[#737373] hover:text-[#c6a43f] transition-colors">
               Cookie Policy
-            </a>
+            </Link>
           </div>
         </div>
       </div>
